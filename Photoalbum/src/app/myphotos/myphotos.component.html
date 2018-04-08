@@ -1,0 +1,15 @@
+<app-navigation></app-navigation>
+<div class="postCard-container">
+  <mat-grid-list cols="4" rowHeight="820px">
+    <div class="addButton-container">
+      <button mat-raised-button color="primary" (click)="openAddCardPopup();">Добавить фото</button>
+    </div>
+
+    <mat-grid-tile *ngFor="let item of postCardsCount;let i = index">
+      <app-mypostcard [index]="i"></app-mypostcard>
+    </mat-grid-tile>
+
+
+  </mat-grid-list>
+</div>
+

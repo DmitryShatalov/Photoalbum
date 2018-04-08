@@ -1,0 +1,19 @@
+<h3>Please Enter Info: </h3>
+<div class="AddCardPopup">
+  <label>Title</label>
+  <br>
+  <mat-form-field >
+  <input matInput type="text" #title >
+</mat-form-field >
+  <br>
+
+  <label>Descriprion</label>
+  <br>
+  <mat-form-field >
+      <textarea matInput #desc ></textarea> 
+</mat-form-field >
+</div>
+
+  <button mat-raised-button class="popup-btn" (click)="dialogRef.close({title: title.value, desc: desc.value})">Submit</button>
+
+<p id="err">{{errorMsg}}</p>

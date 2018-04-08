@@ -1,0 +1,9 @@
+<app-navigation></app-navigation>
+<div class="postCard-container">
+  <mat-grid-list cols="4" rowHeight="820px">
+    <mat-grid-tile *ngFor="let item of postCardsCount;let i = index">
+      <app-mypostcard [index]="i"></app-mypostcard>
+  </mat-grid-tile>
+  </mat-grid-list>
+</div>
+

@@ -1,0 +1,10 @@
+.AddCardPopup{
+    width: 300px;
+    height: 400px;
+}
+textarea{
+    height: 250px;
+}
+mat-form-field{
+    width: 280px;
+}
