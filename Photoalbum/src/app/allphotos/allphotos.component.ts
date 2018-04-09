@@ -5,7 +5,6 @@ import {PostsData} from '../posts-data';
   selector: 'app-allphotos',
   templateUrl: './allphotos.component.html',
   styleUrls: ['./allphotos.component.css'],
-  providers: [PostsDataService]
 })
 export class AllphotosComponent implements OnInit {
   rate = 3;

@@ -7,8 +7,8 @@
   <img mat-card-image src="{{posts[index].img}}" width="300px" height="400px" alt="Photo">
   <mat-card-content>
     <mat-card-title>{{ posts[index].title }}</mat-card-title>
-    <button btn mat-raised-button color="primary">Редактировать</button>
-    <button btn mat-raised-button color="primary">Удалить</button>
+    <button btn mat-raised-button color="primary" (click)="openEditCardPopup(index);">Редактировать</button>
+    <button btn mat-raised-button color="primary" (click)="deleteMyPostCard(index);">Удалить</button>
     <p>
      {{posts[index].description }}
     </p>

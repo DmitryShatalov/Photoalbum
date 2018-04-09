@@ -7,17 +7,17 @@
   <label>Title</label>
   <br>
   <mat-form-field >
-  <input matInput type="text" [(ngModel)]="title" >
+  <input matInput type="text" [(ngModel)]="NewTitle" >
 </mat-form-field >
   <br>
 
   <label>Descriprion</label>
   <br>
   <mat-form-field >
-      <textarea matInput [(ngModel)]="desc" ></textarea> 
+      <textarea matInput [(ngModel)]="NewDesc" ></textarea> 
 </mat-form-field >
 </div>
 
-  <button mat-raised-button class="popup-btn" (click)="addPost()">Submit</button>
+  <button mat-raised-button class="popup-btn" (click)="editPost()">Submit</button>
 
 <p id="err">{{errorMsg}}</p>

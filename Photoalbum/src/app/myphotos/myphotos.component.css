@@ -1,9 +1,9 @@
 .addButton-container{
     padding: 10px;
-    border: 2px solid black;
+
 }
 mat-grid-list {
-    border: 2px solid black;
+   
 }
 mat-grid-tile{
 margin-top: 50px;

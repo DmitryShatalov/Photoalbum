@@ -19,6 +19,8 @@ import { MypostcardComponent } from './myphotos/mypostcard/mypostcard.component'
 import { AddCardPopupComponent } from './popups/add-card-popup/add-card-popup.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
+import {PostsDataService} from './posts-data.service';
+import { EditCardPopupComponent } from './popups/edit-card-popup/edit-card-popup.component';
 const appRoutes: Routes =[
   { path: '', component: AllphotosComponent},
   { path: 'myphotos', component: MyphotosComponent},
@@ -32,14 +34,15 @@ const appRoutes: Routes =[
     MyphotosComponent,
     NavigationComponent,
     MypostcardComponent,
-    AddCardPopupComponent
+    AddCardPopupComponent,
+    EditCardPopupComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     RouterModule.forRoot(appRoutes), MatInputModule, MatDialogModule
   ],
-  entryComponents: [AddCardPopupComponent ],
-  providers: [],
+  entryComponents: [AddCardPopupComponent, EditCardPopupComponent ],
+  providers: [PostsDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

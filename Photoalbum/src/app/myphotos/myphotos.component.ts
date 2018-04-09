@@ -8,16 +8,12 @@ import { AddCardPopupComponent } from '../popups/add-card-popup/add-card-popup.c
   selector: 'app-myphotos',
   templateUrl: './myphotos.component.html',
   styleUrls: ['./myphotos.component.css'],
-  providers: [PostsDataService, AddCardPopupComponent ]
+  providers: [AddCardPopupComponent ]
 })
 export class MyphotosComponent implements OnInit {
-  newCard :any = {
-    
-  };
+  
   dialogRef: MatDialogRef<AddCardPopupComponent>;
   constructor(public dialog: MatDialog, private postDataService: PostsDataService) { 
-    this.openAddCardPopup();
-    console.log(this.newCard);
   }
 
   ngOnInit() {
@@ -28,11 +24,6 @@ export class MyphotosComponent implements OnInit {
     this.dialogRef = this.dialog.open(AddCardPopupComponent);
     this.dialogRef.afterClosed().subscribe((result) => {
       
-        this.newCard = result;
-        this.newCard.img = "imgPath";
-        this.newCard.rate = 3;
-        console.log(this.newCard);
-        //this.postDataService.addData(this.newCard.img, this.newCard.title, this.newCard.desc, this.newCard.rate);
     })
     
   }

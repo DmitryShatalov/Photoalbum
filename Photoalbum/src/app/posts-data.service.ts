@@ -2,7 +2,7 @@ import {PostsData} from './posts-data'
 export class PostsDataService {
     private posts: PostsData[] = [
         { 
-            img:"https://www.codeproject.com/KB/GDI-plus/ImageProcessing2/img.jpg",
+            img:"https://lh3.googleusercontent.com/nGAOAJ89OPi7tBdX4QY2t716jEzM73qwka3R8OKFsTnzU28dE2kHwrrYJo40Aapzm7co=s360",
             title: "pesik",
             description: "Красивая собачка",
             rate: 3
@@ -39,5 +39,14 @@ export class PostsDataService {
      addData( img: string, title: string,  description: string,  rate: number){
         this.posts.push(new PostsData(img,title,description,rate));
         console.log(this.posts.length);
+     }
+     deleteData(index){
+         this.posts.splice(index, 1);
+     }
+
+     editData(index, newTittle, newDesc){
+        this.posts[index].title = newTittle;
+        this.posts[index].description = newDesc;
+        console.log(this.posts[index]);
      }
 }

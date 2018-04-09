@@ -1,6 +1,17 @@
-mat-card-title{
-    display: inline-block; 
+.post-card {
+  width: 350px;
+  height: 750px;
 }
-.btn{
-    display: inline-block;
+
+img {
+  object-fit: cover;
 }
+
+mat-card-title {
+  display: inline-block;
+}
+
+.btn {
+  display: inline-block;
+}
+
