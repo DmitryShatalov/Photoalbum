@@ -22,10 +22,6 @@ export class MyphotosComponent implements OnInit {
   postCardsCount = this.postDataService.getData();
   openAddCardPopup(){
     this.dialogRef = this.dialog.open(AddCardPopupComponent);
-    this.dialogRef.afterClosed().subscribe((result) => {
-      
-    })
-    
   }
  
 }
