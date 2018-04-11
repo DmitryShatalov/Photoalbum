@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { PostsDataService } from '../../posts-data.service';
-import {PostsData} from '../../posts-data';
+import { PostsDataService } from '../../../posts-data.service';
+import {PostsData} from '../../../posts-data';
 
 
 @Component({

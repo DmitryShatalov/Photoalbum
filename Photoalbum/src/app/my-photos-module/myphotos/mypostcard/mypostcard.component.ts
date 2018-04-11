@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Input} from '@angular/core';
-import {PostsDataService} from '../../posts-data.service';
-import {PostsData} from '../../posts-data';
-import { AddCardPopupComponent } from '../../popups/add-card-popup/add-card-popup.component';
+import {PostsDataService} from '../../../posts-data.service';
+import {PostsData} from '../../../posts-data';
+import { AddCardPopupComponent } from '../../../shared-module/popups/add-card-popup/add-card-popup.component'
 import { MatDialogRef, MatDialog } from '@angular/material';
-import { EditCardPopupComponent } from '../../popups/edit-card-popup/edit-card-popup.component';
+import { EditCardPopupComponent } from '../../../shared-module/popups/edit-card-popup/edit-card-popup.component';
 
 @Component({
   selector: 'app-mypostcard',

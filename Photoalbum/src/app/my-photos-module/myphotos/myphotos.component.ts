@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {PostsDataService} from '../posts-data.service';
-import {PostsData} from '../posts-data';
-import { AddCardPopupComponent } from '../popups/add-card-popup/add-card-popup.component'
+import {PostsDataService} from '../../posts-data.service';
+import {PostsData} from '../../posts-data';
+import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup/add-card-popup.component'
 
 @Component({
   selector: 'app-myphotos',

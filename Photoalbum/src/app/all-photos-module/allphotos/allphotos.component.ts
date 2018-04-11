@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PostsDataService} from '../posts-data.service';
-import {PostsData} from '../posts-data';
+import {PostsDataService} from '../../posts-data.service';
+import {PostsData} from '../../posts-data';
 @Component({
   selector: 'app-allphotos',
   templateUrl: './allphotos.component.html',
