@@ -10,14 +10,15 @@ import {PostsData} from '../../../posts-data';
   styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent implements OnInit {
-  @Input() index;
-  posts: PostsData[] = [];
+  @Input() post;
+  posts: PostsData[];
   myRating = 2;
   fullRating = 3;
   constructor(private postDataService: PostsDataService) { }
 
   ngOnInit() {
-    this.posts = this.postDataService.getData();
+     this.postDataService.getData().subscribe(posts => this.posts = posts);
+     console.log(this.posts);
   }
 
 }

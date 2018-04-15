@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // import {MatToolbarModule} from '@angular/material/toolbar';
 // import {MatCardModule} from '@angular/material/card'
@@ -39,7 +42,7 @@ import { MyPhotosModuleModule} from './my-photos-module/my-photos-module.module'
   imports: [
     BrowserModule, /*BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
      MatInputModule, MatDialogModule,*/
-    AllPhotosModuleModule, MyPhotosModuleModule, AppRoutingModuleModule
+    AllPhotosModuleModule, MyPhotosModuleModule, AppRoutingModuleModule, HttpClientModule
   ],
   //entryComponents: [AddCardPopupComponent, EditCardPopupComponent ],
   providers: [PostsDataService],

@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
+import { PostsData } from './../../../posts-data';
+import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { PostsDataService } from '../../../posts-data.service';
-import {PostsData} from '../../../posts-data';
 
 
 @Component({
@@ -10,17 +10,28 @@ import {PostsData} from '../../../posts-data';
   styleUrls: ['./edit-card-popup.component.css']
 })
 export class EditCardPopupComponent implements OnInit {
-  img: string;
-  NewTitle:string;
-  NewDesc:string;
-  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>, private postDataService:PostsDataService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
+  img: string = "http://www.sketchupjapan.com/podium/images/placeholder-04.png";
+  //@Input() id: number;
+  newTitle:string;
+  newDesc:string;
+  newPost: PostsData;
+  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>, private postDataService:PostsDataService, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }
+ 
+  editPost(id, img: string, title: string, description: string){
+    this.dialogRef.close({newImg:this.img, newTitle: this.newTitle, newDesc: this.newDesc});
+    img = this.img;
+    title = this.newTitle;
+    description =  this.newDesc;
+    id = this.data.id;
+    this.postDataService.editData({id, img, title, description} as PostsData).subscribe(post => {
 
-  editPost(){
-    this.dialogRef.close({title: this.NewTitle, desc: this.NewDesc});
-    this.postDataService.editData(this.data.index, this.NewTitle, this.NewDesc);
+    });
+    
   }
+  
+ 
 }

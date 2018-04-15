@@ -1,52 +1,51 @@
+import { Injectable } from '@angular/core';
 import {PostsData} from './posts-data'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+import { catchError, map, tap } from 'rxjs/operators';
+import  'rxjs/operators/map';
+
+const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+@Injectable()
 export class PostsDataService {
-    private posts: PostsData[] = [
-        { 
-            img:"https://lh3.googleusercontent.com/nGAOAJ89OPi7tBdX4QY2t716jEzM73qwka3R8OKFsTnzU28dE2kHwrrYJo40Aapzm7co=s360",
-            title: "pesik",
-            description: "Красивая собачка",
-            rate: 3
-        },
-        { 
-            img:"http://www.imgworlds.com/wp-content/themes/IMG/img/phase3/welcome/trex.png",
-            title: "dino",
-            description: "Опасный динозавр",
-            rate: 1
-        },
-        { 
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz0jzUrtBj2-4yDIKqGUGgGaHaeuxkXGWvFTd99FNrQPdIy6cxkw",
-            title: "kisa",
-            description: "Красивая киса",
-            rate: 2
-        },
-        { 
-            img:"http://heaclub.ru/tim/e456a0fb6ecdcb8f11d0ce274960329e/babochka-mahaon-dnevnaya-ili-nochnaya.jpg",
-            title: "бабочка",
-            description: "Красивая бабочка",
-            rate: 5
-        },
-        { 
-            img:"http://kievpravda.com/media/images/34652/raw/6c603812bc896f4cd1a6902f6b97dfb1.jpg",
-            title: "панда",
-            description: "Красивая панда",
-            rate: 4
-        },
-     ];
 
-     getData(): PostsData[] {
-        return this.posts;
+    private postsUrl = 'http://localhost:3000/posts';
+constructor(private http: HttpClient){
+
+}
+     getData(): Observable<PostsData[]> {
+        return this.http.get<PostsData[]>(this.postsUrl).pipe(catchError(this.handleError('getHeroes', [])));
      }
-     addData( img: string, title: string,  description: string,  rate: number){
-        this.posts.push(new PostsData(img,title,description,rate));
-        console.log(this.posts.length);
+     //addData( img: string, title: string,  description: string,  rate: number){}
+     addData(post: PostsData): Observable<PostsData>{
+         return this.http.post<PostsData>(this.postsUrl, post, httpOptions);
      }
-     deleteData(index){
-         this.posts.splice(index, 1);
+     deleteData(id: number): Observable<{}>{
+         let url = `${this.postsUrl}/${id}`;
+         console.log(url);
+         return this.http.delete(url, httpOptions);
      }
 
-     editData(index, newTittle, newDesc){
-        this.posts[index].title = newTittle;
-        this.posts[index].description = newDesc;
-        console.log(this.posts[index]);
+     editData(post: PostsData){
+        let url = `${this.postsUrl}/${post.id}`;
+       return this.http.put(url,post,httpOptions);
      }
+
+
+     private handleError<T> (operation = 'operation', result?: T) {
+        return (error: any): Observable<T> => {
+    
+          // TODO: send the error to remote logging infrastructure
+          console.error(error); // log to console instead
+    
+          // TODO: better job of transforming error for user consumption
+    
+          // Let the app keep running by returning an empty result.
+          return of(result as T);
+        };
+      }
 }
