@@ -7,7 +7,7 @@
   <img mat-card-image src="{{post.img}}" width="300px" height="400px" alt="Photo">
   <mat-card-content>
     <mat-card-title>{{ post.title }}</mat-card-title>
-    <button btn mat-raised-button color="primary" (click)="openEditCardPopup(post.id);" (click)="onEdit()">Редактировать</button>
+    <button btn mat-raised-button color="primary" (click)="openEditCardPopup(post.id);">Редактировать</button>
     <button btn mat-raised-button color="primary" (click)="onDelete();">Удалить</button>
     <p>
      {{post.description }}

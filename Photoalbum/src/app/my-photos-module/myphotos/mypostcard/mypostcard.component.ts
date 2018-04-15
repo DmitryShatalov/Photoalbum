@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import 'rxjs';
 
 import { PostsData } from './../../../posts-data';
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
@@ -21,19 +23,16 @@ export class MypostcardComponent implements OnInit {
   dialogRef: MatDialogRef<EditCardPopupComponent>;
   newPost;
   today: number = Date.now();
-   //posts: PostsData[];
+
+   stream$ = Observable.create(obserber => {
+    obserber.next(this.newPost);
+  });
   constructor(public dialog: MatDialog, private postsDataService: PostsDataService) { }
-  //addPost(img: string, title: string,  description: string,  rate: number){
-     // this.postsDataService.addData(img, title, description, rate);
-  //}
+  
 onDelete(){
    this.delete.emit();
 }
 
-onEdit(newPost){
-  //console.log(this.newPost.title);
-  this.edit.emit(this.newPost);
-}
   ngOnInit() {
     this.postsDataService.getData().subscribe(posts => this.posts = posts);
   }
@@ -42,15 +41,15 @@ onEdit(newPost){
     this.dialogRef = this.dialog.open(EditCardPopupComponent, {
       data: {
         id: id,
-        //test: this.test
       }
     });
     this.dialogRef.afterClosed().subscribe(result => {
       
       this.newPost = result;
-      //this.newPost.id = this.post.id;
-     // console.log(this.newPost);
+      this.newPost.id = this.post.id;
+      this.edit.emit(this.newPost);
     });
+    
   }
 
 }

@@ -18,7 +18,7 @@ constructor(private http: HttpClient){
 
 }
      getData(): Observable<PostsData[]> {
-        return this.http.get<PostsData[]>(this.postsUrl).pipe(catchError(this.handleError('getHeroes', [])));
+        return this.http.get<PostsData[]>(this.postsUrl);
      }
      //addData( img: string, title: string,  description: string,  rate: number){}
      addData(post: PostsData): Observable<PostsData>{

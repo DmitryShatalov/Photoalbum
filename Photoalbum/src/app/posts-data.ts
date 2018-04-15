@@ -4,10 +4,4 @@ export class PostsData{
 
      }
     id: number;
-    //img: string;
-    //title: string;
-    //description: string;
- 
-
- 
 }

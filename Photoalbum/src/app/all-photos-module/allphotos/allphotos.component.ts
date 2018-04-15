@@ -14,7 +14,6 @@ export class AllphotosComponent implements OnInit {
 
   ngOnInit() {
       this.postDataService.getData().subscribe(posts => this.postCardsCount = posts);
-      console.log(this.postCardsCount);
   }
   
 }
