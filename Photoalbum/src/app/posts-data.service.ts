@@ -17,16 +17,14 @@ export class PostsDataService {
 constructor(private http: HttpClient){
 
 }
-     getData(): Observable<PostsData[]> {
+     getData(){
         return this.http.get<PostsData[]>(this.postsUrl);
      }
-     //addData( img: string, title: string,  description: string,  rate: number){}
-     addData(post: PostsData): Observable<PostsData>{
+     addData(post: PostsData) {
          return this.http.post<PostsData>(this.postsUrl, post, httpOptions);
      }
-     deleteData(id: number): Observable<{}>{
+     deleteData(id: number){
          let url = `${this.postsUrl}/${id}`;
-         console.log(url);
          return this.http.delete(url, httpOptions);
      }
 
@@ -35,17 +33,4 @@ constructor(private http: HttpClient){
        return this.http.put(url,post,httpOptions);
      }
 
-
-     private handleError<T> (operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
-    
-          // TODO: send the error to remote logging infrastructure
-          console.error(error); // log to console instead
-    
-          // TODO: better job of transforming error for user consumption
-    
-          // Let the app keep running by returning an empty result.
-          return of(result as T);
-        };
-      }
 }

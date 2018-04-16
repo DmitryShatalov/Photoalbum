@@ -1,6 +1,4 @@
 import { Observable } from 'rxjs/Observable';
-import 'rxjs';
-
 import { PostsData } from './../../../posts-data';
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { Input} from '@angular/core';
@@ -23,10 +21,6 @@ export class MypostcardComponent implements OnInit {
   dialogRef: MatDialogRef<EditCardPopupComponent>;
   newPost;
   today: number = Date.now();
-
-   stream$ = Observable.create(obserber => {
-    obserber.next(this.newPost);
-  });
   constructor(public dialog: MatDialog, private postsDataService: PostsDataService) { }
   
 onDelete(){

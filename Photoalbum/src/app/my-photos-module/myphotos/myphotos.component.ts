@@ -26,15 +26,14 @@ export class MyphotosComponent implements OnInit {
   deleteMyPostCard(post: PostsData){
       this.postDataService.deleteData(post.id).subscribe(res =>{
         this.postCardsCount = this.postCardsCount.filter(p => p.id !== post.id);
-         console.log(this.postCardsCount);
       });
     }
 
     edit(newPost){
-        let img = newPost.newImg;
+         let img = newPost.newImg;
          let title = newPost.newTitle;
          let description =  newPost.newDesc;
-        let  id = newPost.id;
+         let  id = newPost.id;
          this.postDataService.editData({id, img, title, description} as PostsData).subscribe(res => {
          this.postDataService.getData().subscribe(posts => this.postCardsCount = posts);
          });

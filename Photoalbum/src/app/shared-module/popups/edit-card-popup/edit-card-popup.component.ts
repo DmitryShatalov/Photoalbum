@@ -22,15 +22,7 @@ export class EditCardPopupComponent implements OnInit {
   }
  
   editPost(id, img: string, title: string, description: string){
-    this.dialogRef.close({newImg:this.img, newTitle: this.newTitle, newDesc: this.newDesc});
-    // img = this.img;
-    // title = this.newTitle;
-    // description =  this.newDesc;
-    // id = this.data.id;
-    // this.postDataService.editData({id, img, title, description} as PostsData).subscribe(post => {
-
-    // });
-    
+    this.dialogRef.close({newImg:this.img, newTitle: this.newTitle, newDesc: this.newDesc}); 
   }
   
  
