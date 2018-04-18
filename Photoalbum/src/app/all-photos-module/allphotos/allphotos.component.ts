@@ -7,13 +7,13 @@ import {PostsDataService} from '../../posts-data.service';
   styleUrls: ['./allphotos.component.css'],
 })
 export class AllphotosComponent implements OnInit {
-  postCardsCount : PostsData[] ;
+  posts : PostsData[] ;
   rate = 3;
   title = 'app';
   constructor(private postDataService: PostsDataService) { }
 
   ngOnInit() {
-      this.postDataService.getData().subscribe(posts => this.postCardsCount = posts);
+      this.postDataService.getData().subscribe(posts => this.posts = posts);
   }
   
 }

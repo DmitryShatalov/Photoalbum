@@ -5,8 +5,8 @@
       <button mat-raised-button color="primary" (click)="openAddCardPopup();">Добавить фото</button>
     </div>
 
-    <mat-grid-tile *ngFor="let post of postCardsCount; let i = index">
-      <app-mypostcard  [post]="post" (delete)="deleteMyPostCard(post)" (edit)="edit($event)"></app-mypostcard>
+    <mat-grid-tile *ngFor="let post of posts; let i = index">
+      <app-mypostcard  [post]="post" (delete)="deleteMyPost(post)" (edit)="editMyPost($event)"></app-mypostcard>
     </mat-grid-tile>
 
 

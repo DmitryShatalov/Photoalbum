@@ -10,21 +10,15 @@ import { PostsDataService } from '../../../posts-data.service';
 })
 export class AddCardPopupComponent implements OnInit {
     img: string = "http://www.sketchupjapan.com/podium/images/placeholder-04.png";
-constructor(public dialogRef: MatDialogRef<AddCardPopupComponent>, private postDataService:PostsDataService,  @Inject(MAT_DIALOG_DATA) public data: any){}
+    newDesc: string;
+    newTitle: string;
+constructor(public dialogRef: MatDialogRef<AddCardPopupComponent>){}
 
   ngOnInit() {
   }
 
-  addPost(img: string, title :string,  description: string){  
-   
-    this.dialogRef.close();
-    this.postDataService.addData({img, title, description} as PostsData).subscribe(post => {
-       this.data.posts.push(post);
-     });
-    console.log(this.data.posts)
-   
+  addPost(){  
+    this.dialogRef.close({newImg:this.img, newTitle: this.newTitle, newDesc: this.newDesc});
   }
   
-
-    
 }

@@ -12,38 +12,45 @@ import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup
   providers: [AddCardPopupComponent ]
 })
 export class MyphotosComponent implements OnInit {
+  posts: PostsData[];
   newPost;
-  postCardsCount: PostsData[];
   dialogRef: MatDialogRef<AddCardPopupComponent>;
   constructor(public dialog: MatDialog, private postDataService: PostsDataService) { 
   }
 
   ngOnInit() {
-    this.postDataService.getData().subscribe(posts => this.postCardsCount = posts);
+    this.postDataService.getData().subscribe(posts => this.posts = posts);
   }
 
-
-  deleteMyPostCard(post: PostsData){
+  deleteMyPost(post: PostsData){
       this.postDataService.deleteData(post.id).subscribe(res =>{
-        this.postCardsCount = this.postCardsCount.filter(p => p.id !== post.id);
+        this.posts = this.posts.filter(p => p.id !== post.id);
       });
     }
 
-    edit(newPost){
-         let img = newPost.newImg;
-         let title = newPost.newTitle;
-         let description =  newPost.newDesc;
-         let  id = newPost.id;
+  editMyPost(editedPost){
+         let img = editedPost.editedImg;
+         let title = editedPost.editedTitle;
+         let description =  editedPost.editedDesc;
+         let  id = editedPost.id;
          this.postDataService.editData({id, img, title, description} as PostsData).subscribe(res => {
-         this.postDataService.getData().subscribe(posts => this.postCardsCount = posts);
+         this.postDataService.getData().subscribe(posts => this.posts = posts);
          });
-    }
-  openAddCardPopup(){
-    this.dialogRef = this.dialog.open(AddCardPopupComponent, {
-      data: {
-        posts: this.postCardsCount
-      }
-    });
   }
+  openAddCardPopup(){
+    this.dialogRef = this.dialog.open(AddCardPopupComponent);
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.newPost = result;
+      let img =  this.newPost.newImg;
+      let title = this.newPost.newTitle;
+      let description =  this.newPost.newDesc;
+
+      this.postDataService.addData({img, title, description} as PostsData).subscribe(post => {
+        this.postDataService.getData().subscribe(posts => this.posts = posts);
+        });
+    });
+  } 
  
 }
+

@@ -19,28 +19,16 @@
       "description": "Красивая киса"
     },
     {
+      "id": 4,
       "img": "http://www.sketchupjapan.com/podium/images/placeholder-04.png",
-      "title": "ss",
-      "description": "ssss",
-      "id": 4
+      "title": "qweqwe",
+      "description": "qweqwe"
     },
     {
+      "id": 5,
       "img": "http://www.sketchupjapan.com/podium/images/placeholder-04.png",
-      "title": "wa",
-      "description": "wa",
-      "id": 5
-    },
-    {
-      "img": "http://www.sketchupjapan.com/podium/images/placeholder-04.png",
-      "title": "ssss",
-      "description": "ssssss",
-      "id": 6
-    },
-    {
-      "img": "http://www.sketchupjapan.com/podium/images/placeholder-04.png",
-      "title": "bb",
-      "description": "bbbbb",
-      "id": 7
+      "title": "qwe",
+      "description": "qwe"
     }
   ]
 }

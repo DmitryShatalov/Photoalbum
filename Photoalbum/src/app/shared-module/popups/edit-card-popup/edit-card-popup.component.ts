@@ -13,16 +13,16 @@ export class EditCardPopupComponent implements OnInit {
 
   img: string = "http://www.sketchupjapan.com/podium/images/placeholder-04.png";
   //@Input() id: number;
-  newTitle:string;
-  newDesc:string;
-  newPost: PostsData;
-  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>, private postDataService:PostsDataService, @Inject(MAT_DIALOG_DATA) public data: any) { }
+  editedTitle:string;
+  editedDesc:string;
+  editedPost: PostsData;
+  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>,  @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }
  
-  editPost(id, img: string, title: string, description: string){
-    this.dialogRef.close({newImg:this.img, newTitle: this.newTitle, newDesc: this.newDesc}); 
+  editPost(){
+    this.dialogRef.close({editedImg:this.img, editedTitle: this.editedTitle, editedDesc: this.editedDesc}); 
   }
   
  

@@ -7,19 +7,19 @@
   <label>Title</label>
   <br>
   <mat-form-field >
-  <input matInput type="text" #title >
-  <!-- <input matInput type="text" [(ngModel)]="title" > -->
+  <!-- <input matInput type="text" #title > -->
+  <input matInput type="text" [(ngModel)]="newTitle" >
 </mat-form-field >
   <br>
 
   <label>Descriprion</label>
   <br>
   <mat-form-field >
-      <textarea matInput #description ></textarea> 
-      <!-- <textarea matInput [(ngModel)]="desc" ></textarea>  -->
+      <!-- <textarea matInput #description ></textarea>  -->
+      <textarea matInput [(ngModel)]="newDesc" ></textarea> 
 </mat-form-field >
 </div>
 
-  <button mat-raised-button class="popup-btn" (click)="addPost(img, title.value, description.value)">Submit</button>
+  <button mat-raised-button class="popup-btn" (click)="addPost()">Submit</button>
 
 <p id="err">{{errorMsg}}</p>
