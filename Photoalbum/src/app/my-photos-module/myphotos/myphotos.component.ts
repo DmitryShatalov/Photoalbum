@@ -1,9 +1,10 @@
 import { Observable } from 'rxjs/Observable';
-import { PostsData } from './../../posts-data';
+import {PostsData} from '../../shared-module/posts-data';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {PostsDataService} from '../../posts-data.service';
+import {PostsDataService} from '../../shared-module/services/posts-data.service';
 import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup/add-card-popup.component'
+import { AuthService } from './../../shared-module/services/auth.service';
 
 @Component({
   selector: 'app-myphotos',
@@ -15,11 +16,12 @@ export class MyphotosComponent implements OnInit {
   posts: PostsData[];
   newPost;
   dialogRef: MatDialogRef<AddCardPopupComponent>;
-  constructor(public dialog: MatDialog, private postDataService: PostsDataService) { 
+  constructor(public dialog: MatDialog, private postDataService: PostsDataService, private authService: AuthService) { 
   }
 
   ngOnInit() {
-    this.postDataService.getData().subscribe(posts => this.posts = posts);
+   // this.postDataService.getData().subscribe(posts => this.posts = posts);
+   this.isAuth();
   }
 
   deleteMyPost(post: PostsData){
@@ -51,6 +53,9 @@ export class MyphotosComponent implements OnInit {
         });
     });
   } 
- 
+ isAuth(){
+   //console.log(this.authService.isLoggedIn());
+    return this.authService.isLoggedIn();
+ }
 }
 

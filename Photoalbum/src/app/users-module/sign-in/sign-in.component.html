@@ -1,0 +1,38 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Photoalbum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+  <div class="alert">{{message}}</div>
+  <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <!-- <div class="form-group" [ngClass]="{'has-error: loginForm.get('login').invalid && loginForm.get('login').touched'}"> -->
+      <mat-form-field class="login">
+        <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
+      </mat-form-field>
+      <span class="form-error-text" *ngIf="loginForm.get('login').invalid && loginForm.get('login').touched">
+        <span *ngIf="loginForm.get('login')['errors'] ['required']">Логин не может быть пустым.</span>
+      </span>
+
+      <mat-form-field class="password">
+        <input matInput placeholder="Введите пароль" type="password" required formControlName="password">
+      </mat-form-field>
+      <span class="form-error-text" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+          <span *ngIf="loginForm.get('password')['errors'] ['required']">Пароль не может быть пустым.</span>
+          <span *ngIf="loginForm.get('password')['errors'] ['minlength']">
+            Пароль должен быть не меньше {{loginForm.get('password')['errors'] ['minlength']['requiredLength']}} символов, 
+            сейчас {{loginForm.get('password')['errors'] ['minlength']['actualLength']}}.
+          </span>
+        </span>
+      <button mat-raised-button class="submit" color="primary" [disabled]="loginForm.invalid">Войти</button>
+       <!-- </div> -->
+  </form>
+
+</body>
+
+</html>
+

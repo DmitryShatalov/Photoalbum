@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {PostsData} from './posts-data'
+import {PostsData} from '../posts-data'
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';

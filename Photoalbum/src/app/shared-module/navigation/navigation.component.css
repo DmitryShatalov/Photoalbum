@@ -1,3 +1,10 @@
 a {
     text-decoration: none;
 }
+.register{
+    position: absolute;
+    right: 0;
+}
+.greetings{
+    font-size: 14px;
+}

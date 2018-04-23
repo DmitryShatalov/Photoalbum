@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="!isAuth">
   <mat-toolbar-row>
     <button mat-button [matMenuTriggerFor]="menu">Меню</button>
     <mat-menu #menu="matMenu">
@@ -9,5 +9,35 @@
         <a>Мои фотографии</a>
       </button>
     </mat-menu>
+
+    <button class="register" mat-button [matMenuTriggerFor]="sign">Вход/Регистрация</button>
+    <mat-menu #sign="matMenu">
+      <button mat-menu-item routerLink="/login">
+        <a>Вход</a>
+      </button>
+      <button mat-menu-item routerLink="/register">
+        <a>Регистрация</a>
+      </button>
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="isAuth">
+  <mat-toolbar-row>
+    <button mat-button [matMenuTriggerFor]="menu">Меню</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="">
+        <a>Все фотографии</a>
+      </button>
+      <button mat-menu-item routerLink="/myphotos">
+        <a>Мои фотографии</a>
+      </button>
+    </mat-menu>
+    <div class="register">
+      <span class="greetings"> Здравствуйте, {{user.name}}</span>
+      <button mat-button (click)="logout()">Выход</button>
+    </div>
+
+  </mat-toolbar-row>
+</mat-toolbar>
+

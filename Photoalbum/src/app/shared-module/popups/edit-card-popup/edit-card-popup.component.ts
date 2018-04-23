@@ -1,7 +1,7 @@
-import { PostsData } from './../../../posts-data';
+import {PostsData} from '../../../shared-module/posts-data';
 import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { PostsDataService } from '../../../posts-data.service';
+import {PostsDataService} from '../../../shared-module/services/posts-data.service';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class EditCardPopupComponent implements OnInit {
   editedTitle:string;
   editedDesc:string;
   editedPost: PostsData;
-  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>,  @Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>) { }
 
   ngOnInit() {
   }

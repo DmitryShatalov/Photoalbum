@@ -1,4 +1,4 @@
-<app-navigation></app-navigation>
+<app-navigation  [isAuth]="isAuth()"></app-navigation>
 <div class="postCard-container">
   <mat-grid-list cols="4" rowHeight="820px">
     <mat-grid-tile *ngFor="let post of posts;let i = index">

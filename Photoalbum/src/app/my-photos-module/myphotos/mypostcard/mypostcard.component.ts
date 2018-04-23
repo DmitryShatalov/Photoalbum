@@ -1,8 +1,8 @@
 import { Observable } from 'rxjs/Observable';
-import { PostsData } from './../../../posts-data';
+import {PostsData} from '../../../shared-module/posts-data';
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { Input} from '@angular/core';
-import {PostsDataService} from '../../../posts-data.service';
+import {PostsDataService} from '../../../shared-module/services/posts-data.service';
 import { AddCardPopupComponent } from '../../../shared-module/popups/add-card-popup/add-card-popup.component'
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { EditCardPopupComponent } from '../../../shared-module/popups/edit-card-popup/edit-card-popup.component';

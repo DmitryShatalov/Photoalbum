@@ -1,8 +1,10 @@
+import { SignUpComponent } from './../users-module/sign-up/sign-up.component';
+import { SignInComponent } from './../users-module/sign-in/sign-in.component';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card'
@@ -19,11 +21,12 @@ import {EditCardPopupComponent} from './popups/edit-card-popup/edit-card-popup.c
 
 @NgModule({
   imports: [
-    CommonModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
+    CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     MatInputModule, MatDialogModule, AppRoutingModuleModule 
   ],
+  
   declarations: [EditCardPopupComponent, AddCardPopupComponent, NavigationComponent],
-  exports:[BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
+  exports:[BrowserAnimationsModule,ReactiveFormsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     MatInputModule, MatDialogModule, EditCardPopupComponent, AddCardPopupComponent, NavigationComponent]
 })
 export class SharedModuleModule { }

@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Photoalbum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+  <form class="sign-up-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <!-- <div class="form-group" [ngClass]="{'has-error: loginForm.get('login').invalid && loginForm.get('login').touched'}"> -->
+    <mat-form-field class="login">
+      <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
+    </mat-form-field>
+    <span class="form-error-text" *ngIf="registerForm.get('login').invalid && registerForm.get('login').touched">
+      <span *ngIf="registerForm.get('login')['errors'] ['required']">Логин не может быть пустым.</span>
+      <!-- <span *ngIf="registerForm.get('login')['errors'] ['forbiddenLogin']">Такой Логин уже существует.</span> -->
+    </span>
+
+    <mat-form-field class="password">
+      <input matInput placeholder="Введите пароль" type="password" required formControlName="password">
+    </mat-form-field>
+    <span class="form-error-text" *ngIf="registerForm.get('password').invalid && registerForm.get('password').touched">
+      <span *ngIf="registerForm.get('password')['errors'] ['required']">Пароль не может быть пустым.</span>
+      <span *ngIf="registerForm.get('password')['errors'] ['minlength']">
+        Пароль должен быть не меньше {{registerForm.get('password')['errors'] ['minlength']['requiredLength']}} символов, сейчас
+        {{registerForm.get('password')['errors'] ['minlength']['actualLength']}}.
+      </span>
+    </span>
+
+    <mat-form-field class="name">
+      <input matInput placeholder="Введите имя" type="text" required formControlName="name">
+    </mat-form-field>
+    <span class="form-error-text" *ngIf="registerForm.get('name').invalid && registerForm.get('name').touched">
+      <span *ngIf="registerForm.get('name')['errors'] ['required']">Имя не может быть пустым.</span>
+    </span>
+    <button mat-raised-button class="submit" color="primary" [disabled]="registerForm.invalid">Зарегистрироваться</button>
+    <!-- </div> -->
+  </form>
+</body>
+
+</html>
+

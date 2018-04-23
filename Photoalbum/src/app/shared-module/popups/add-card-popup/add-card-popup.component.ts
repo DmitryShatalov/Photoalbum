@@ -1,8 +1,8 @@
-import { PostsData } from './../../../posts-data';
+import {PostsData} from '../../../shared-module/posts-data';
 import { Component, OnInit, Input, Inject} from '@angular/core';
 
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { PostsDataService } from '../../../posts-data.service';
+import {PostsDataService} from '../../../shared-module/services/posts-data.service';
 @Component({
   selector: 'app-add-card-popup',
   templateUrl: './add-card-popup.component.html',
