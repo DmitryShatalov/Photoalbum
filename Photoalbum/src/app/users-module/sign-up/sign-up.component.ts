@@ -34,18 +34,7 @@ export class SignUpComponent implements OnInit {
     });
   }
 
-  // forbiddenLogins(control: FormControl): Promise<any>{
-  //   return new Promise((resolve, reject) => {
-  //     this.usersService.getUserByLogin(control.value).subscribe((user: User)=> {
-  //       if(user){
-  //         console.log(user.login + "error");
-  //         resolve({forbiddenLogin: true});
-  //       } else {
-  //         resolve(null);
-  //       }
-  //     });
-  //   });
-  // }
+  
 
 
 }

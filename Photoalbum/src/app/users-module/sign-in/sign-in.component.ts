@@ -6,6 +6,7 @@ import { User } from '../../shared-module/models/user.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -30,15 +31,15 @@ export class SignInComponent implements OnInit {
   loginUser(){
     const formData = this.loginForm.value;
     //console.log(formData);
-    this.usersService.loginUser(formData).subscribe((user: User) => {
-      if(user){
-        console.log(user);
-        window.localStorage.setItem("user", JSON.stringify(user));
+    this.usersService.loginUser(formData).subscribe((res) => {
+      if(res){
+        console.log(res['token']);
+        window.localStorage.setItem("token", JSON.stringify((res)));
         this.authService.login();
         this.router.navigate(['myphotos']);
-        this.usersService.getCurrentUser().subscribe(res => console.log(res));
+        this.usersService.getCurrentUser().subscribe(data => console.log(data));
       } else {
-          alert('Неверный логин или пароль')
+         alert('Неверный логин или пароль')
       }
     });
   }

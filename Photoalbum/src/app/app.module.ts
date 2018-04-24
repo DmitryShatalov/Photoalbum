@@ -1,7 +1,7 @@
 import { AuthService } from './shared-module/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {AppRoutingModuleModule} from './app-routing-module/app-routing-module.module'
 import { AppComponent } from './app.component';

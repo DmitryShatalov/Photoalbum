@@ -19,12 +19,15 @@ import {NavigationComponent} from "./navigation/navigation.component"
 import {AddCardPopupComponent} from './popups/add-card-popup/add-card-popup.component'
 import {EditCardPopupComponent} from './popups/edit-card-popup/edit-card-popup.component'
 
+
 @NgModule({
   imports: [
     CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     MatInputModule, MatDialogModule, AppRoutingModuleModule 
   ],
-  
+  providers:[
+   
+  ],
   declarations: [EditCardPopupComponent, AddCardPopupComponent, NavigationComponent],
   exports:[BrowserAnimationsModule,ReactiveFormsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     MatInputModule, MatDialogModule, EditCardPopupComponent, AddCardPopupComponent, NavigationComponent]

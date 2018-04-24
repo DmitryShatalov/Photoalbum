@@ -17,7 +17,7 @@ export class AllphotosComponent implements OnInit {
       this.postDataService.getData().subscribe(posts => this.posts = posts);
   }
   isAuth(){
-    console.log(this.authService.isLoggedIn());
+    //console.log(this.authService.isLoggedIn());
      return this.authService.isLoggedIn();
   }
 }
