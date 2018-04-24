@@ -34,7 +34,7 @@ export class SignInComponent implements OnInit {
     this.usersService.loginUser(formData).subscribe((res) => {
       if(res){
         console.log(res['token']);
-        window.localStorage.setItem("token", JSON.stringify((res)));
+        window.localStorage.setItem("token", JSON.stringify((res['token'])));
         this.authService.login();
         this.router.navigate(['myphotos']);
         this.usersService.getCurrentUser().subscribe(data => console.log(data));

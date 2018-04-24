@@ -8,7 +8,7 @@ export class AuthInterceptor implements HttpInterceptor{
         if (localStorage.getItem('token') != undefined) {
             return next.handle(req.clone({
                 setHeaders: {
-                    authorization: localStorage.getItem('token')
+                    authorization: "Basic " + JSON.parse(localStorage.getItem('token'))
                 }
             }));
         }

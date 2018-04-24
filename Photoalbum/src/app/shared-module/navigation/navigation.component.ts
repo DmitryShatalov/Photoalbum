@@ -12,16 +12,15 @@ import { Router } from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
   @Input() isAuth;
-  user: User;
+  userName;
 constructor(private authService: AuthService, private router: Router, private userService: UsersService){}
   ngOnInit() {
-    this.user = JSON.parse(window.localStorage.getItem('user'));
-     //this.userService.getCurrentUser().subscribe((user: User)=>{
-      // this.user = user;
-    // });
+    this.userService.getCurrentUser().subscribe(data => {
+      this.userName = data['user']['name'];
+    })
   }
   logout(){
-    this.userService.logoutUser(this.user);
+    //this.userService.logoutUser(this.user);
     this.authService.logout();
     this.router.navigate(['']);
   }

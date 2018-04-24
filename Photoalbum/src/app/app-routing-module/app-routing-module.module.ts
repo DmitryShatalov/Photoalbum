@@ -1,3 +1,5 @@
+import { AuthGuard } from './../shared-module/services/auth.guard.service';
+import { CanActivate } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +13,7 @@ const appRoutes: Routes =[
   { path: '', component: AllphotosComponent},
   { path: 'login', component: SignInComponent},
   { path: 'register', component: SignUpComponent},
-  { path: 'myphotos', component: MyphotosComponent},
+  { path: 'myphotos', component: MyphotosComponent, canActivate:[AuthGuard]},
   { path: '**', redirectTo: '/'}
 ];
 
