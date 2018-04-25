@@ -7,6 +7,7 @@ import { SharedModuleModule } from '../shared-module/shared-module.module';
 import { UsersService } from '../shared-module/services/users.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared-module/services/auth.interceptor';
+import { ChangeUserComponent } from './change-user/change-user.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { AuthInterceptor } from '../shared-module/services/auth.interceptor';
       multi:true 
       }
     ],
-  declarations: [SignUpComponent, SignInComponent],
+  declarations: [SignUpComponent, SignInComponent, ChangeUserComponent],
   exports:[SignUpComponent, SignInComponent]
 })
 export class UsersModuleModule { }

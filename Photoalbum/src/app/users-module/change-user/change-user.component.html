@@ -1,0 +1,22 @@
+<div class="ChangeUserPopup">
+    <label>Image</label>
+    <br>
+  
+  
+  <label>Новый логин</label>
+  <br>
+  <mat-form-field >
+  <input matInput type="text" [(ngModel)] ="newLogin" >
+</mat-form-field >
+  <br>
+
+  <label>Новое имя</label>
+  <br>
+  <mat-form-field >
+      <textarea matInput [(ngModel)] ="newName" ></textarea> 
+</mat-form-field >
+</div>
+
+  <button mat-raised-button class="popup-btn" (click)="changeUser()">Submit</button>
+
+<p id="err">{{errorMsg}}</p>

@@ -35,7 +35,7 @@
     </mat-menu>
     <div class="register">
       <!-- <span class="greetings"> Здравствуйте,</span> -->
-      <span class="greetings"> Здравствуйте, {{userName}}</span>
+      <button mat-button class="greetings" (click)="changeUser()"> Здравствуйте, {{userName}}</button>
       <button mat-button (click)="logout()">Выход</button>
     </div>
 

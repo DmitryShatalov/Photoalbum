@@ -23,9 +23,6 @@ export class UsersService {
   getCurrentUser() {
     return this.http.get(this.url + "current-user");
   }
-  getAllPhotos(){
-    return this.http.get(this.url + "getAllPhotos");
-  }
   loginUser(user: User){
     return this.http.post(this.url + "login", user, httpOptions);
   }
@@ -35,4 +32,8 @@ export class UsersService {
   logoutUser(user: User){
     return this.http.post(this.url + "logout", user, httpOptions);
   }
+  changeUser(user: User){
+    return this.http.post(this.url + "changeUser", user, httpOptions);
+  }
+  
 }

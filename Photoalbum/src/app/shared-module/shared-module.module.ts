@@ -1,3 +1,4 @@
+import { ChangeUserComponent } from './../users-module/change-user/change-user.component';
 import { AuthGuard } from './services/auth.guard.service';
 import { SignUpComponent } from './../users-module/sign-up/sign-up.component';
 import { SignInComponent } from './../users-module/sign-in/sign-in.component';
@@ -29,6 +30,7 @@ import {EditCardPopupComponent} from './popups/edit-card-popup/edit-card-popup.c
   providers:[
      AuthGuard
   ],
+  entryComponents: [ChangeUserComponent ],
   declarations: [EditCardPopupComponent, AddCardPopupComponent, NavigationComponent],
   exports:[BrowserAnimationsModule,ReactiveFormsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
     MatInputModule, MatDialogModule, EditCardPopupComponent, AddCardPopupComponent, NavigationComponent]

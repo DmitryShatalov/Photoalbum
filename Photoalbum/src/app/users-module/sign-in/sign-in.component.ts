@@ -37,7 +37,7 @@ export class SignInComponent implements OnInit {
         window.localStorage.setItem("token", JSON.stringify((res['token'])));
         this.authService.login();
         this.router.navigate(['myphotos']);
-        this.usersService.getCurrentUser().subscribe(data => console.log(data));
+       // this.usersService.getCurrentUser().subscribe(data => console.log(data));
       } else {
          alert('Неверный логин или пароль')
       }
