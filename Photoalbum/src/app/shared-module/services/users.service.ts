@@ -10,30 +10,27 @@ const httpOptions = {
 
 @Injectable()
 export class UsersService {
-
   url = "http://localhost:3000/";
-  
-  constructor(private http: HttpClient) {     
-}
 
-  getUserByLogin(login){
+  constructor(private http: HttpClient) {}
+
+  getUserByLogin(login) {
     return this.http.get(this.url + "getUserByLogin/" + login);
   }
 
   getCurrentUser() {
     return this.http.get(this.url + "current-user");
   }
-  loginUser(user: User){
+  loginUser(user: User) {
     return this.http.post(this.url + "login", user, httpOptions);
   }
-  registerUser(user: User){
+  registerUser(user: User) {
     return this.http.post(this.url + "register", user, httpOptions);
   }
-  logoutUser(user: User){
+  logoutUser(user: User) {
     return this.http.post(this.url + "logout", user, httpOptions);
   }
-  changeUser(user: User){
+  changeUser(user: User) {
     return this.http.post(this.url + "changeUser", user, httpOptions);
   }
-  
 }

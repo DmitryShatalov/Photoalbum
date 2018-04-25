@@ -7,55 +7,64 @@ import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup
 import { AuthService } from './../../shared-module/services/auth.service';
 
 @Component({
-  selector: 'app-myphotos',
-  templateUrl: './myphotos.component.html',
-  styleUrls: ['./myphotos.component.css'],
-  providers: [AddCardPopupComponent ]
+  selector: "app-myphotos",
+  templateUrl: "./myphotos.component.html",
+  styleUrls: ["./myphotos.component.css"],
+  providers: [AddCardPopupComponent]
 })
 export class MyphotosComponent implements OnInit {
   posts: PostsData[];
   newPost;
   dialogRef: MatDialogRef<AddCardPopupComponent>;
-  constructor(public dialog: MatDialog, private postDataService: PostsDataService, private authService: AuthService) { 
-  }
+  constructor(
+    public dialog: MatDialog,
+    private postDataService: PostsDataService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-   // this.postDataService.getData().subscribe(posts => this.posts = posts);
-   this.isAuth();
+    // this.postDataService.getData().subscribe(posts => this.posts = posts);
+    this.isAuth();
   }
 
-  deleteMyPost(post: PostsData){
-      this.postDataService.deleteData(post.id).subscribe(res =>{
-        this.posts = this.posts.filter(p => p.id !== post.id);
+  deleteMyPost(post: PostsData) {
+    this.postDataService.deleteData(post.id).subscribe(res => {
+      this.posts = this.posts.filter(p => p.id !== post.id);
+    });
+  }
+
+  editMyPost(editedPost) {
+    let img = editedPost.editedImg;
+    let title = editedPost.editedTitle;
+    let description = editedPost.editedDesc;
+    let id = editedPost.id;
+    this.postDataService
+      .editData({ id, img, title, description } as PostsData)
+      .subscribe(res => {
+        this.postDataService.getData().subscribe(posts => (this.posts = posts));
       });
-    }
-
-  editMyPost(editedPost){
-         let img = editedPost.editedImg;
-         let title = editedPost.editedTitle;
-         let description =  editedPost.editedDesc;
-         let  id = editedPost.id;
-         this.postDataService.editData({id, img, title, description} as PostsData).subscribe(res => {
-         this.postDataService.getData().subscribe(posts => this.posts = posts);
-         });
   }
-  openAddCardPopup(){
+  openAddCardPopup() {
     this.dialogRef = this.dialog.open(AddCardPopupComponent);
 
     this.dialogRef.afterClosed().subscribe(result => {
       this.newPost = result;
-      let img =  this.newPost.newImg;
+      let img = this.newPost.newImg;
       let title = this.newPost.newTitle;
-      let description =  this.newPost.newDesc;
+      let description = this.newPost.newDesc;
 
-      this.postDataService.addData({img, title, description} as PostsData).subscribe(post => {
-        this.postDataService.getData().subscribe(posts => this.posts = posts);
+      this.postDataService
+        .addData({ img, title, description } as PostsData)
+        .subscribe(post => {
+          this.postDataService
+            .getData()
+            .subscribe(posts => (this.posts = posts));
         });
     });
-  } 
- isAuth(){
-   //console.log(this.authService.isLoggedIn());
+  }
+  isAuth() {
+    //console.log(this.authService.isLoggedIn());
     return this.authService.isLoggedIn();
- }
+  }
 }
 

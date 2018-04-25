@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { SharedModuleModule } from '../shared-module/shared-module.module';
+import { SharedModule } from '../shared-module/shared.module';
 import { UsersService } from '../shared-module/services/users.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared-module/services/auth.interceptor';
@@ -11,7 +11,7 @@ import { ChangeUserComponent } from './change-user/change-user.component';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModuleModule
+    CommonModule, FormsModule, SharedModule
   ],
   providers:[
     {
@@ -23,4 +23,4 @@ import { ChangeUserComponent } from './change-user/change-user.component';
   declarations: [SignUpComponent, SignInComponent, ChangeUserComponent],
   exports:[SignUpComponent, SignInComponent]
 })
-export class UsersModuleModule { }
+export class UsersModule { }
