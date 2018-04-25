@@ -29,3 +29,8 @@ body{
 .submit{
     margin-top: 50px; 
 }
+.alert{
+    text-align: center;
+    color: red;
+    margin: 0 auto;
+}

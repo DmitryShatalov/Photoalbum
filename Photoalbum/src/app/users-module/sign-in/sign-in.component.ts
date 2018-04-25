@@ -16,7 +16,7 @@ export class SignInComponent implements OnInit {
   login;
   password;
   loginForm: FormGroup;
-  message = "";
+  error;
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
@@ -38,14 +38,17 @@ export class SignInComponent implements OnInit {
     //console.log(formData);
     this.usersService.loginUser(formData).subscribe(res => {
       if (res) {
-        console.log(res["token"]);
+        console.log(res);
         window.localStorage.setItem("token", JSON.stringify(res["token"]));
         this.authService.login();
         this.router.navigate(["myphotos"]);
         // this.usersService.getCurrentUser().subscribe(data => console.log(data));
       } else {
-        alert("Неверный логин или пароль");
+        console.log("fail");
       }
-    });
+    }, error => {
+      this.error = error.error;
+    }
+    );
   }
 }

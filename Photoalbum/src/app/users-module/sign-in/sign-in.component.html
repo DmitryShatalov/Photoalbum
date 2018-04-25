@@ -8,9 +8,9 @@
 </head>
 
 <body>
-  <div class="alert">{{message}}</div>
   <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
     <!-- <div class="form-group" [ngClass]="{'has-error: loginForm.get('login').invalid && loginForm.get('login').touched'}"> -->
+        <div class="alert" *ngIf="error">{{error}}</div>
       <mat-form-field class="login">
         <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
       </mat-form-field>
