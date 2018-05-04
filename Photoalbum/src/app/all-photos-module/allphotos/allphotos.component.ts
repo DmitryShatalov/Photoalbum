@@ -17,7 +17,7 @@ export class AllphotosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.postDataService.getData().subscribe(posts => (this.posts = posts));
+    this.postDataService.getAllPhotos().subscribe(posts => (this.posts = posts));
   }
   isAuth() {
     //console.log(this.authService.isLoggedIn());

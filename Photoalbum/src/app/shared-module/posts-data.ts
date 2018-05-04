@@ -1,6 +1,6 @@
 export class PostsData {
   constructor(
-    public img: string,
+    public imageUrl: string,
     public title: string,
     public description: string
   ) {}

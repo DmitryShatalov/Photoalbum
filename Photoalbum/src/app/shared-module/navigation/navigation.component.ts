@@ -1,6 +1,7 @@
+import { UserService } from './../../users-module/user.service';
 import 'rxjs/add/operator/map'
 import { ChangeUserComponent } from './../../users-module/change-user/change-user.component';
-import { UsersService } from './../services/users.service';
+import { UsersDataService  } from './../services/users-data.service';
 import { AuthService } from './../../shared-module/services/auth.service';
 import { User } from './../models/user.model';
 import { SignInComponent } from './../../users-module/sign-in/sign-in.component';
@@ -21,13 +22,17 @@ export class NavigationComponent implements OnInit {
     public dialog: MatDialog,
     private authService: AuthService,
     private router: Router,
-    private userService: UsersService
+    private usersDataService: UsersDataService,
+    private userService: UserService
   ) {}
   ngOnInit() {
-    this.userService.getCurrentUser().subscribe(data => {
+    this.usersDataService.getCurrentUser().subscribe(data => {
       this.userName = data["user"]["name"];
     });
+    //this.userName = this.authService.getUser();
+    //console.log(this.authService.getUser());
   }
+
   logout() {
     //this.userService.logoutUser(this.user);
     this.authService.logout();
@@ -36,17 +41,23 @@ export class NavigationComponent implements OnInit {
   changeUser() {
     this.dialogRef = this.dialog.open(ChangeUserComponent);
     this.dialogRef.afterClosed().subscribe(result => {
-      this.userService
+      this.usersDataService
         .getCurrentUser()
-        .map(value => {
-          return value["user"];
+        .map(mappedData => {
+          return mappedData["user"];
         })
         .subscribe(user => {
-          user.login = result.newLogin;
-          user.name = result.newName;
-          /* this.userService.changeUser(user).subscribe(user => {
-            console.log(user);
-          }); */
+          if (result) {
+            user.login = result.newLogin;
+            user.name = result.newName;
+            this.usersDataService.changeUser(user).subscribe(data => {
+              if (data) {
+                this.userName = result.newName;
+              } else {
+                this.userName = user.name;
+              }
+            });
+          }
         });
     });
   }

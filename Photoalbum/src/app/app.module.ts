@@ -10,7 +10,8 @@ import { AllPhotosModule} from './all-photos-module/all-photos.module';
 import { MyPhotosModule} from './my-photos-module/my-photos-module.module';
 import{ UsersModule} from './users-module/users.module';
 import { SharedModule } from './shared-module/shared.module';
-import { UsersService } from './shared-module/services/users.service';
+import {UsersDataService } from './shared-module/services/users-data.service';
+import { UserService } from './users-module/user.service';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { UsersService } from './shared-module/services/users.service';
   imports: [
     BrowserModule, AllPhotosModule, MyPhotosModule, AppRoutingModule, HttpClientModule, UsersModule, SharedModule
   ],
-  providers: [PostsDataService, UsersService, AuthService],
+  providers: [PostsDataService, UsersDataService , AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

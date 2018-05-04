@@ -14,7 +14,7 @@ import { EditCardPopupComponent } from '../../shared-module/popups/edit-card-pop
 })
 export class MypostcardComponent implements OnInit {
   @Input() post;
-  //posts: PostsData[];
+  posts;
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
   editComponent: EditCardPopupComponent;

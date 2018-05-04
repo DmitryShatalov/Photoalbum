@@ -9,7 +9,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class UsersService {
+export class UsersDataService {
   url = "http://localhost:3000/";
 
   constructor(private http: HttpClient) {}
@@ -31,6 +31,6 @@ export class UsersService {
     return this.http.post(this.url + "logout", user, httpOptions);
   }
   changeUser(user: User) {
-    return this.http.post(this.url + "changeUser", user, httpOptions);
+    return this.http.put(this.url + "changeUser", user, httpOptions);
   }
 }

@@ -34,3 +34,10 @@ body{
     color: red;
     margin: 0 auto;
 }
+.go-to-main-page{
+    display: block;
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 200px;
+  }
+  

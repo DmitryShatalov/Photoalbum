@@ -1,7 +1,7 @@
 import { AuthService } from './../../shared-module/services/auth.service';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsersService } from '../../shared-module/services/users.service';
+import { UsersDataService  } from '../../shared-module/services/users-data.service';
 import { User } from '../../shared-module/models/user.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   loginForm: FormGroup;
   error;
   constructor(
-    private usersService: UsersService,
+    private usersService: UsersDataService ,
     private authService: AuthService,
     private router: Router
   ) {}
@@ -50,5 +50,9 @@ export class SignInComponent implements OnInit {
       this.error = error.error;
     }
     );
+  }
+
+  goToMainPage(){
+    this.router.navigate([""]);
   }
 }

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SharedModule } from '../shared-module/shared.module';
-import { UsersService } from '../shared-module/services/users.service';
+import { UsersDataService  } from '../shared-module/services/users-data.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared-module/services/auth.interceptor';
 import { ChangeUserComponent } from './change-user/change-user.component';

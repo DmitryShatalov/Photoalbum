@@ -9,18 +9,23 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
   styleUrls: ["./add-card-popup.component.css"]
 })
 export class AddCardPopupComponent implements OnInit {
-  img: string = "http://www.sketchupjapan.com/podium/images/placeholder-04.png";
+  img = null;
   newDesc: string;
   newTitle: string;
   constructor(public dialogRef: MatDialogRef<AddCardPopupComponent>) {}
 
   ngOnInit() {}
 
+  onFileSelected(event){
+    this.img = event.target.files[0];
+    
+  }
   addPost() {
     this.dialogRef.close({
       newImg: this.img,
       newTitle: this.newTitle,
       newDesc: this.newDesc
     });
+    
   }
 }

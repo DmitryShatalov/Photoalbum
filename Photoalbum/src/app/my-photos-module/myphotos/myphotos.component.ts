@@ -13,7 +13,7 @@ import { AuthService } from './../../shared-module/services/auth.service';
   providers: [AddCardPopupComponent]
 })
 export class MyphotosComponent implements OnInit {
-  posts: PostsData[];
+  posts;
   newPost;
   dialogRef: MatDialogRef<AddCardPopupComponent>;
   constructor(
@@ -23,7 +23,7 @@ export class MyphotosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // this.postDataService.getData().subscribe(posts => this.posts = posts);
+     this.postDataService.getData().subscribe(posts => this.posts = posts);
     this.isAuth();
   }
 
@@ -34,12 +34,12 @@ export class MyphotosComponent implements OnInit {
   }
 
   editMyPost(editedPost) {
-    let img = editedPost.editedImg;
+    let imageUrl = editedPost.editedImg;
     let title = editedPost.editedTitle;
     let description = editedPost.editedDesc;
     let id = editedPost.id;
     this.postDataService
-      .editData({ id, img, title, description } as PostsData)
+      .editData({ id, imageUrl, title, description } as PostsData)
       .subscribe(res => {
         this.postDataService.getData().subscribe(posts => (this.posts = posts));
       });
@@ -48,19 +48,22 @@ export class MyphotosComponent implements OnInit {
     this.dialogRef = this.dialog.open(AddCardPopupComponent);
 
     this.dialogRef.afterClosed().subscribe(result => {
+     // console.log(result);
       this.newPost = result;
       let img = this.newPost.newImg;
       let title = this.newPost.newTitle;
       let description = this.newPost.newDesc;
-
+      const fd = new FormData;
+      fd.append('file', img, img.name);
+      fd.append('title', title);
+      fd.append('description', description);
+      //console.log(fd);
       this.postDataService
-        .addData({ img, title, description } as PostsData)
+        .addData(fd)
         .subscribe(post => {
-          this.postDataService
-            .getData()
-            .subscribe(posts => (this.posts = posts));
+              console.log(post);
+            });
         });
-    });
   }
   isAuth() {
     //console.log(this.authService.isLoggedIn());

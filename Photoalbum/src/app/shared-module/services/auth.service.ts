@@ -1,4 +1,8 @@
+import { Injectable } from '@angular/core';
+import { UsersDataService } from './users-data.service';
+@Injectable()
 export class AuthService {
+  constructor(private userDataService: UsersDataService) {}
   //private isAuth;
   private isAuth = window.localStorage.length !== 0;
   setAuth() {
@@ -18,4 +22,11 @@ export class AuthService {
   isLoggedIn(): boolean {
     return this.isAuth;
   }
+  /* getUser() {
+    if (this.isAuth) {
+      this.userDataService.getCurrentUser().subscribe(data => {
+        return data;
+      });
+    } else return null;
+  } */
 }
