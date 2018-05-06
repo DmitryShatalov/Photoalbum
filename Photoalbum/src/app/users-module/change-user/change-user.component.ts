@@ -15,4 +15,8 @@ export class ChangeUserComponent implements OnInit {
   changeUser() {
     this.dialogRef.close({ newName: this.newName, newLogin: this.newLogin });
   }
+  
+  closeChangePopup(){
+
+  }
 }

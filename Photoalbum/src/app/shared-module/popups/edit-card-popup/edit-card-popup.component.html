@@ -1,23 +1,24 @@
 <h3>Please Enter Info: </h3>
 <div class="AddCardPopup">
-    <label>Image</label>
-    <br>
-  
-  
+  <label>Image</label>
+  <br>
+
+
   <label>Title</label>
   <br>
-  <mat-form-field >
-  <input matInput type="text" [(ngModel)] ="editedTitle" >
-</mat-form-field >
+  <mat-form-field>
+    <input matInput type="text" [(ngModel)]="editedTitle">
+  </mat-form-field>
   <br>
 
   <label>Descriprion</label>
   <br>
-  <mat-form-field >
-      <textarea matInput [(ngModel)] ="editedDesc" ></textarea> 
-</mat-form-field >
+  <mat-form-field>
+    <textarea matInput [(ngModel)]="editedDesc"></textarea>
+  </mat-form-field>
+</div>
+<div class="popup-buttons">
+  <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
+  <button mat-button class="popup-btn" (click)="editPost()">Изменить</button>
 </div>
 
-  <button mat-raised-button class="popup-btn" (click)="editPost()">Submit</button>
-
-<p id="err">{{errorMsg}}</p>

@@ -1,20 +1,15 @@
 <mat-card class="post-card">
-  
-  <div mat-card-avatar class="example-header-image">
-    <!-- <button btn mat-raised-button color="primary">Добавить фото</button> -->
-    <!-- <input type="file" name="adasd" value="asdasd"> -->
-  </div>
-  <img mat-card-image src="{{post.imageUrl}}" width="300px" height="400px" alt="Photo">
+  <img mat-card-image src="{{post.imageUrl}}" alt="Photo">
   <mat-card-content>
     <mat-card-title>{{ post.title }}</mat-card-title>
-    <button btn mat-raised-button color="primary" (click)="openEditCardPopup(post.id);">Редактировать</button>
+    <button btn mat-raised-button color="primary" (click)="openEditCardPopup();">Редактировать</button>
     <button btn mat-raised-button color="primary" (click)="onDelete();">Удалить</button>
     <p>
      {{post.description }}
     </p>
 
     <span>Added by {{post.user}}</span>
-    <span>{{post.uploadDate | date}}</span>
+    <span>{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
   </mat-card-content>
   <span class="fullRating">Rating:
     <bar-rating [(rate)]= post.rate [theme]="'stars'"></bar-rating>

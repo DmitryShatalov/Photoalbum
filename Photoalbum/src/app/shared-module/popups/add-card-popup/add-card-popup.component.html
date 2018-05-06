@@ -1,9 +1,9 @@
-<h3>Please Enter Info: </h3>
 <div class="AddCardPopup">
   <label>Image</label>
   <br>
 
   <input type="file" (change)="onFileSelected($event)">
+  <br><br>
   <label>Title</label>
   <br>
   <mat-form-field>
@@ -19,6 +19,8 @@
     <textarea matInput [(ngModel)]="newDesc"></textarea>
   </mat-form-field>
 </div>
-
-<button mat-raised-button class="popup-btn" (click)="addPost()">Submit</button>
+<div class="popup-buttons">
+  <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
+  <button mat-raised-button class="popup-btn" (click)="addPost()">Добавить</button>
+</div>
 

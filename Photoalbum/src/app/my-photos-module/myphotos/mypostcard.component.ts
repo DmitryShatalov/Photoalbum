@@ -34,16 +34,14 @@ export class MypostcardComponent implements OnInit {
     //this.postsDataService.getData().subscribe(posts => this.posts = posts);
   }
 
-  openEditCardPopup(id) {
-    this.dialogRef = this.dialog.open(EditCardPopupComponent, {
-      data: {
-        id: id
-      }
-    });
+  openEditCardPopup() {
+    this.dialogRef = this.dialog.open(EditCardPopupComponent);
     this.dialogRef.afterClosed().subscribe(result => {
-      this.editedPost = result;
-      this.editedPost.id = this.post.id;
-      this.edit.emit(this.editedPost);
+      if (result) {
+        this.editedPost = result;
+        this.editedPost.id = this.post.id;
+        this.edit.emit(this.editedPost);
+      }
     });
   }
 }

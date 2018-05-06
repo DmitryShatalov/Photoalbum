@@ -23,7 +23,7 @@ export class MyphotosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-     this.postDataService.getData().subscribe(posts => this.posts = posts);
+    this.postDataService.getData().subscribe(posts => (this.posts = posts));
     this.isAuth();
   }
 
@@ -48,25 +48,21 @@ export class MyphotosComponent implements OnInit {
     this.dialogRef = this.dialog.open(AddCardPopupComponent);
 
     this.dialogRef.afterClosed().subscribe(result => {
-     // console.log(result);
-      this.newPost = result;
-      let img = this.newPost.newImg;
-      let title = this.newPost.newTitle;
-      let description = this.newPost.newDesc;
-      const fd = new FormData;
-      fd.append('file', img, img.name);
-      fd.append('title', title);
-      fd.append('description', description);
-      //console.log(fd);
-      this.postDataService
-        .addData(fd)
-        .subscribe(post => {
-              console.log(post);
-            });
+      if (result) {
+        const fd = new FormData();
+        fd.append("file", result.newImg, result.newImg.name);
+        fd.append("title", result.newTitle);
+        fd.append("description", result.newDesc);
+        this.postDataService.addData(fd).subscribe(post => {
+          console.log(post);
+          this.postDataService
+            .getData()
+            .subscribe(posts => (this.posts = posts));
         });
+      }
+    });
   }
   isAuth() {
-    //console.log(this.authService.isLoggedIn());
     return this.authService.isLoggedIn();
   }
 }

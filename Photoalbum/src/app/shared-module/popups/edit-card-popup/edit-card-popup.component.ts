@@ -10,7 +10,6 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
   styleUrls: ["./edit-card-popup.component.css"]
 })
 export class EditCardPopupComponent implements OnInit {
-  img: string = "http://www.sketchupjapan.com/podium/images/placeholder-04.png";
   //@Input() id: number;
   editedTitle: string;
   editedDesc: string;
@@ -21,7 +20,6 @@ export class EditCardPopupComponent implements OnInit {
 
   editPost() {
     this.dialogRef.close({
-      editedImg: this.img,
       editedTitle: this.editedTitle,
       editedDesc: this.editedDesc
     });
