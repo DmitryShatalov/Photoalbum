@@ -13,6 +13,8 @@ import { SignUpComponent } from './../users-module/sign-up/sign-up.component';
 import { SignInComponent } from './../users-module/sign-in/sign-in.component';
 import { ChangeUserComponent } from './../users-module/change-user/change-user.component';
 import { AuthGuard } from './services/auth.guard.service';
+import { CommentsComponent } from '../comments/comments.component';
+import { CommentsService } from '../comments/comments.service';
 @NgModule({
   /*  imports: [
     CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
@@ -27,12 +29,13 @@ import { AuthGuard } from './services/auth.guard.service';
     MaterialFrameworkModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, CommentsService],
   entryComponents: [ChangeUserComponent],
   declarations: [
     EditCardPopupComponent,
     AddCardPopupComponent,
-    NavigationComponent
+    NavigationComponent, 
+    CommentsComponent
   ],
   exports: [
     BrowserAnimationsModule,
@@ -42,7 +45,8 @@ import { AuthGuard } from './services/auth.guard.service';
     EditCardPopupComponent,
     AddCardPopupComponent,
     NavigationComponent,
-    MaterialFrameworkModule
+    MaterialFrameworkModule,
+    CommentsComponent
   ]
 })
 export class SharedModule {}

@@ -4,6 +4,7 @@ import { PostCardComponent } from './allphotos/post-card.component';
 import { AllphotosComponent } from './allphotos/allphotos.component';
 import {SharedModule} from '../shared-module/shared.module';
 import {AppRoutingModule} from './../app-routing-module/app-routing.module'
+import { CommentsComponent } from '../comments/comments.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import {AppRoutingModule} from './../app-routing-module/app-routing.module'
   ],
   declarations: [
     PostCardComponent,
-    AllphotosComponent],
+    AllphotosComponent,
+  ],
   exports: [
     PostCardComponent,
     AllphotosComponent]

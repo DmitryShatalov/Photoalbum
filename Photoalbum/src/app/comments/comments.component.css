@@ -1,0 +1,12 @@
+.comments-container{
+    height: auto;
+}
+ul {
+    list-style: none;
+}
+.show-comment-btn{
+    margin-top: 10px;
+}
+.comments-list{
+    height: auto;
+}

@@ -12,8 +12,9 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class SignUpComponent implements OnInit {
   registerForm: FormGroup;
-  constructor(private usersService: UsersDataService, private router: Router) {}
   error;
+  constructor(private usersService: UsersDataService, private router: Router) {}
+  
   
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -39,9 +40,5 @@ export class SignUpComponent implements OnInit {
     }, error => {
       this.error = error.error;
     });
-  }
-
-  goToMainPage(){
-    this.router.navigate([""]);
   }
 }

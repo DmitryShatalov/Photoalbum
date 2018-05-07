@@ -1,8 +1,18 @@
 .post-card {
   width: 350px;
-  height: 750px;
+  height: auto;
+  border: 2px solid red;
 }
 
 img {
-  object-fit: cover;
+  /* object-fit: cover; */
 }
+
+mat-card-title {
+  display: inline-block;
+}
+
+.btn {
+  display: inline-block;
+}
+

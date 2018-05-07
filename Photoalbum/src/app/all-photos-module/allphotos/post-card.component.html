@@ -1,15 +1,8 @@
 <mat-card class="post-card">
-
-  <div mat-card-avatar class="example-header-image">
-  </div>
   <img mat-card-image src="{{post.imageUrl}}" alt="Photo">
   <mat-card-content>
     <mat-card-title>{{ post.title }}</mat-card-title>
-
-    <p>
-      {{post.description }}
-    </p>
-
+    <p> {{post.description }}</p>
     <span>Added by {{post.user}}</span>
     <span>{{post.uploadDate | date}}</span>
   </mat-card-content>
@@ -19,5 +12,6 @@
   <span class="myRating">My Rating:
     <bar-rating [(rate)]="myRating" [theme]="'stars'"></bar-rating>
   </span>
-
+  <app-comments [post]="post"></app-comments>
 </mat-card>
+

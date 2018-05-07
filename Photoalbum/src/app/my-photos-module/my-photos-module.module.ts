@@ -1,3 +1,5 @@
+import { CommentsService } from './../comments/comments.service';
+import { CommentsComponent } from './../comments/comments.component';
 import { SharedModule } from './../shared-module/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,6 +14,7 @@ import {EditCardPopupComponent} from '../shared-module/popups/edit-card-popup/ed
   imports: [
     CommonModule,SharedModule, 
   ],
+  //providers:[CommentsService],
   declarations: [MyphotosComponent, MypostcardComponent],
   entryComponents: [AddCardPopupComponent, EditCardPopupComponent ],
   exports:[ MyphotosComponent, MypostcardComponent]

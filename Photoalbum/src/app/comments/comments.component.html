@@ -1,0 +1,24 @@
+<div class="comments-container">
+  <button class="show-comment-input-btn" mat-raised-button color="primary" (click)="showCommentInput()">Добавить комментарий</button>
+  <form class="commentsForm" [formGroup]="commentsForm" (ngSubmit)="addComment()">
+    <div class="show-input-wrapper" *ngIf="isShowedInput">
+      <mat-form-field>
+        <textarea matInput placeholder="Введите комментарий" formControlName="comment"></textarea>
+      </mat-form-field>
+      <button class="submit-btn" mat-raised-button color="primary" type="submit">Отправить</button>
+    </div>
+  </form>
+
+  <button class="show-comment-btn" mat-raised-button color="primary" (click)="showComments(); showHideComments()">
+    {{isShowedComments == false ? 'Показать комментарии': 'Скрыть комментарии'}}
+  </button>
+  <ul class="comments-list" *ngIf="isShowedComments">
+    <li *ngFor="let comm of photoComments; let i = index">
+      <div>{{comm['text']}}</div>
+      <div>Добавлено {{comm['user']}} {{comm['date'] | date: "MMM d yyyy, HH:mm"}}</div>
+      <button class="edit-comment--btn" mat-raised-button color="primary">Редактировать</button>
+      <button class="delete-comment--btn" mat-raised-button color="primary" (click)="deleteComment(comm['id'])">Удалить</button>
+    </li>
+  </ul>
+</div>
+

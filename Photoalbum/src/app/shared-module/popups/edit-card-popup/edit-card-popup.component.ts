@@ -11,6 +11,7 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
 })
 export class EditCardPopupComponent implements OnInit {
   //@Input() id: number;
+
   editedTitle: string;
   editedDesc: string;
   editedPost: PostsData;

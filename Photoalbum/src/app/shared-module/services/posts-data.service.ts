@@ -8,15 +8,15 @@ import { catchError, map, tap } from 'rxjs/operators';
 import  'rxjs/operators/map';
 
 const httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  headers: new HttpHeaders({ "Content-Type": "application/json" })
+};
 @Injectable()
 export class PostsDataService {
   private postsUrl = "http://localhost:3000/";
   constructor(private http: HttpClient) {}
-getAllPhotos(){
+  getAllPhotos() {
     return this.http.get<PostsData[]>(this.postsUrl + "photos/getAllphotos");
-}
+  }
 
   getData() {
     return this.http.get<PostsData[]>(this.postsUrl + "photos/getUserPhotos");
@@ -24,6 +24,7 @@ getAllPhotos(){
   addData(post) {
     return this.http.post(this.postsUrl + "photos", post);
   }
+
   deleteData(id: number) {
     let url = `${this.postsUrl + "photos"}/${id}`;
     return this.http.delete(url, httpOptions);
