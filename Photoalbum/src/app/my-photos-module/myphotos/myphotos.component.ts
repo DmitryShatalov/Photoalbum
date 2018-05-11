@@ -1,3 +1,4 @@
+import { RatingsService } from './../../ratings/ratings.service';
 import { Observable } from 'rxjs/Observable';
 import {PostsData} from '../../shared-module/posts-data';
 import { Component, OnInit } from '@angular/core';
@@ -15,11 +16,13 @@ import { AuthService } from './../../shared-module/services/auth.service';
 export class MyphotosComponent implements OnInit {
   posts;
   newPost;
+  rating;
   dialogRef: MatDialogRef<AddCardPopupComponent>;
   constructor(
     public dialog: MatDialog,
     private postDataService: PostsDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private ratingsService: RatingsService
   ) {}
 
   ngOnInit() {
@@ -33,6 +36,14 @@ export class MyphotosComponent implements OnInit {
     });
   }
 
+  addRating(rating, post) {
+    this.rating = {
+      photoId: post.id,
+      rating: rating
+    };
+    console.log(this.rating);
+    this.ratingsService.addRaiting(this.rating).subscribe(res => console.log(res));
+  }
   editMyPost(editedPost) {
     let imageUrl = editedPost.editedImg;
     let title = editedPost.editedTitle;

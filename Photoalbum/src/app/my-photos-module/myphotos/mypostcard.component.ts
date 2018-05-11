@@ -17,6 +17,7 @@ export class MypostcardComponent implements OnInit {
   posts;
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
+  @Output() addRatingEmitter = new EventEmitter();
   editComponent: EditCardPopupComponent;
   dialogRef: MatDialogRef<EditCardPopupComponent>;
   editedPost;
@@ -34,6 +35,9 @@ export class MypostcardComponent implements OnInit {
     //this.postsDataService.getData().subscribe(posts => this.posts = posts);
   }
 
+  addRating(rating){
+    this.addRatingEmitter.emit(rating);
+  }
   openEditCardPopup() {
     this.dialogRef = this.dialog.open(EditCardPopupComponent);
     this.dialogRef.afterClosed().subscribe(result => {

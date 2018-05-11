@@ -4,11 +4,12 @@ import { PostCardComponent } from './allphotos/post-card.component';
 import { AllphotosComponent } from './allphotos/allphotos.component';
 import {SharedModule} from '../shared-module/shared.module';
 import {AppRoutingModule} from './../app-routing-module/app-routing.module'
-import { CommentsComponent } from '../comments/comments.component';
+import { CommentsModule } from '../comments/comments.module';
+
 
 @NgModule({
   imports: [
-    CommonModule, SharedModule
+    CommonModule, SharedModule, CommentsModule
   ],
   declarations: [
     PostCardComponent,

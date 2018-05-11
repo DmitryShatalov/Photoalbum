@@ -1,0 +1,6 @@
+<span class="fullRating">Rating:
+  <bar-rating [(rate)]="fullRating" [theme]="'stars'" ></bar-rating>
+</span>
+<span class="myRating">My Rating:
+  <bar-rating [(rate)]="myRating" [theme]="'stars'" (rateChange)="addRaiting()"></bar-rating>
+</span>

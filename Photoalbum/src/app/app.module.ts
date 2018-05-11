@@ -12,7 +12,6 @@ import{ UsersModule} from './users-module/users.module';
 import { SharedModule } from './shared-module/shared.module';
 import {UsersDataService } from './shared-module/services/users-data.service';
 import { UserService } from './users-module/user.service';
-import { CommentsComponent } from './comments/comments.component';
 
 
 @NgModule({

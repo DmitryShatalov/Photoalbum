@@ -20,11 +20,16 @@ export class CommentsService {
   }
 
   editComments(comment) {
+    //let url = `${this.postsUrl + "comments"}/${id}`;
     return this.http.put(this.postsUrl + "comments", comment);
   }
 
   deleteCommentById(id: number) {
     let url = `${this.postsUrl + "comments/deleteCommentById"}/${id}`;
     return this.http.delete(url, httpOptions);
+  }
+  getCommentById(id: number){
+    let url = `${this.postsUrl + "comments/getCommentById"}/${id}`;
+    return this.http.get(url, httpOptions);
   }
 }

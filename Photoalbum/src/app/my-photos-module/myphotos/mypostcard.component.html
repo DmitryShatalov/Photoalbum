@@ -5,18 +5,12 @@
     <button btn mat-raised-button color="primary" (click)="openEditCardPopup();">Редактировать</button>
     <button btn mat-raised-button color="primary" (click)="onDelete();">Удалить</button>
     <p>
-     {{post.description }}
+      {{post.description }}
     </p>
 
     <span>Added by {{post.user}}</span>
     <span>{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
   </mat-card-content>
-  <span class="fullRating">Rating:
-    <bar-rating [(rate)]= post.rate [theme]="'stars'"></bar-rating>
-  </span>
-  <span class="myRating">My Rating:
-    <!-- <bar-rating [(rate)]="myRating" [theme]="'stars'"></bar-rating> -->
-  </span>
-  <app-comments [post]="post"></app-comments>
+  <app-ratings [post]="post" (ratingEmitter)="addRating($event)"></app-ratings>
+  <app-comments-wrapper [post]="post"></app-comments-wrapper>
 </mat-card>
-

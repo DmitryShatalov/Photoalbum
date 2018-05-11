@@ -1,0 +1,7 @@
+
+  <form class="commentsForm" [formGroup]="editForm" (ngSubmit)="editComment($event)">
+      <mat-form-field>
+        <textarea matInput placeholder="Введите комментарий" formControlName="comment"></textarea>
+      </mat-form-field>
+      <button class="submit-btn" mat-raised-button color="primary" type="submit">Отправить</button>
+  </form>

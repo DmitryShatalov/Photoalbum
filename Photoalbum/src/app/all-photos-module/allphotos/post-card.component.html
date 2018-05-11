@@ -6,12 +6,7 @@
     <span>Added by {{post.user}}</span>
     <span>{{post.uploadDate | date}}</span>
   </mat-card-content>
-  <span class="fullRating">Rating:
-    <bar-rating [(rate)]="fullRating" [theme]="'stars'"></bar-rating>
-  </span>
-  <span class="myRating">My Rating:
-    <bar-rating [(rate)]="myRating" [theme]="'stars'"></bar-rating>
-  </span>
-  <app-comments [post]="post"></app-comments>
+  <app-ratings [post]="post" (ratingEmitter)="addRating()"></app-ratings>
+  <app-comments-wrapper></app-comments-wrapper>
 </mat-card>
 

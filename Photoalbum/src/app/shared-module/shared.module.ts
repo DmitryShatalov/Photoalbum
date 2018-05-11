@@ -13,8 +13,9 @@ import { SignUpComponent } from './../users-module/sign-up/sign-up.component';
 import { SignInComponent } from './../users-module/sign-in/sign-in.component';
 import { ChangeUserComponent } from './../users-module/change-user/change-user.component';
 import { AuthGuard } from './services/auth.guard.service';
-import { CommentsComponent } from '../comments/comments.component';
 import { CommentsService } from '../comments/comments.service';
+import { RatingsComponent } from '../ratings/ratings.component';
+import { RatingsService } from '../ratings/ratings.service';
 @NgModule({
   /*  imports: [
     CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
@@ -27,15 +28,15 @@ import { CommentsService } from '../comments/comments.service';
     FormsModule,
     BarRatingModule,
     MaterialFrameworkModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [AuthGuard, CommentsService],
+  providers: [AuthGuard, CommentsService, RatingsService],
   entryComponents: [ChangeUserComponent],
   declarations: [
     EditCardPopupComponent,
     AddCardPopupComponent,
     NavigationComponent, 
-    CommentsComponent
+    RatingsComponent
   ],
   exports: [
     BrowserAnimationsModule,
@@ -46,7 +47,7 @@ import { CommentsService } from '../comments/comments.service';
     AddCardPopupComponent,
     NavigationComponent,
     MaterialFrameworkModule,
-    CommentsComponent
+    RatingsComponent
   ]
 })
 export class SharedModule {}

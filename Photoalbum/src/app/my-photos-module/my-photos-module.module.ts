@@ -1,5 +1,4 @@
 import { CommentsService } from './../comments/comments.service';
-import { CommentsComponent } from './../comments/comments.component';
 import { SharedModule } from './../shared-module/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,10 +8,11 @@ import { MyphotosComponent } from './myphotos/myphotos.component';
 import { MypostcardComponent } from './myphotos/mypostcard.component';
 import {AddCardPopupComponent} from '../shared-module/popups/add-card-popup/add-card-popup.component';
 import {EditCardPopupComponent} from '../shared-module/popups/edit-card-popup/edit-card-popup.component';
+import { CommentsModule } from '../comments/comments.module';
 
 @NgModule({
   imports: [
-    CommonModule,SharedModule, 
+    CommonModule,SharedModule, CommentsModule
   ],
   //providers:[CommentsService],
   declarations: [MyphotosComponent, MypostcardComponent],

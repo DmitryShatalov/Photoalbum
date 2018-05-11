@@ -6,7 +6,7 @@
     </div>
 
     <mat-grid-tile *ngFor="let post of posts; let i = index">
-      <app-mypostcard  [post]="post" (delete)="deleteMyPost(post)" (edit)="editMyPost($event)"></app-mypostcard>
+      <app-mypostcard  [post]="post" (delete)="deleteMyPost(post)" (edit)="editMyPost($event)" (addRatingEmitter)= "addRating($event, post)"></app-mypostcard>
     </mat-grid-tile>
 
 

@@ -1,0 +1,21 @@
+<div class="comments-container">
+
+
+  <button class="show-comment-btn" mat-raised-button color="primary" (click)="showComments(); showHideComments()">
+    {{isShowedComments == false ? 'Показать комментарии': 'Скрыть комментарии'}}
+  </button>
+  <ul class="comments-list" *ngIf="isShowedComments">
+    <li *ngFor="let comm of photoComments; let i = index">
+      <div class="show-comments" *ngIf="!isEditable">
+        <div>{{comm['text']}}</div>
+        <div>Добавлено {{comm['user']}} {{comm['date'] | date: "MMM d yyyy, HH:mm"}}</div>
+      </div>
+      <div *ngIf="isEditable">
+        <app-edit-comment [comm]="comm" (commentText)="editComment($event)"></app-edit-comment>
+      </div>
+      <button class="edit-comment--btn" mat-raised-button color="primary" (click)="isCommentEditable()">Редактировать</button>
+      <button class="delete-comment--btn" mat-raised-button color="primary" (click)="deleteComment(comm['id'])">Удалить</button>
+    </li>
+  </ul>
+</div>
+

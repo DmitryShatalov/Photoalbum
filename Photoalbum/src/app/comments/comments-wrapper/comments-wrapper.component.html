@@ -1,0 +1,4 @@
+<div class="comments-wrapper">
+  <app-new-comment [post]="post" (commentText)="addComment($event)"></app-new-comment>
+  <app-comments-list [post]="post"></app-comments-list>
+</div>
