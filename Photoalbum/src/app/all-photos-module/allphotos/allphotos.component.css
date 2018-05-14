@@ -1,0 +1,6 @@
+.flex-card-item {
+  /* min-height: 800px; */
+  margin-top: 10px;
+  width: calc(100% - 70px);
+}
+

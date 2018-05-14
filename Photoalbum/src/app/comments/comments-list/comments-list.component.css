@@ -1,12 +1,20 @@
-.comments-container{
-    height: auto;
+.comments-container {
+  height: auto;
 }
+
 ul {
-    list-style: none;
+  list-style: none;
 }
-.show-comment-btn{
-    margin-top: 10px;
+
+.show-comment-btn {
+  margin-top: 10px;
 }
-.comments-list{
-    height: auto;
+
+.comments-list {
+  height: auto;
+}
+
+.btn {
+  padding: 0;
+  white-space: normal;
 }

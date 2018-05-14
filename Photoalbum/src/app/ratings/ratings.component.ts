@@ -8,9 +8,9 @@ import { RatingsService } from './ratings.service';
   styleUrls: ['./ratings.component.css']
 })
 export class RatingsComponent implements OnInit {
-  @Input() post;
+  //@Input() post;
   @Output() ratingEmitter = new EventEmitter();
-  rating: {};
+  //rating: {};
   fullRating;
   myRating
   constructor(private raitingsService: RatingsService) { }

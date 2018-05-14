@@ -2,6 +2,7 @@ import {PostsData} from '../../../shared-module/posts-data';
 import { Component, OnInit, Input, Inject, EventEmitter, Output } from '@angular/core';
 import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {PostsDataService} from '../../../shared-module/services/posts-data.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -11,13 +12,15 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
 })
 export class EditCardPopupComponent implements OnInit {
   //@Input() id: number;
-
+  editPopupForm: FormGroup;
   editedTitle: string;
   editedDesc: string;
   editedPost: PostsData;
   constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.editPopupForm = new FormGroup({});
+  }
 
   editPost() {
     this.dialogRef.close({

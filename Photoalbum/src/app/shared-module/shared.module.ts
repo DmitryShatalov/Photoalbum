@@ -16,6 +16,7 @@ import { AuthGuard } from './services/auth.guard.service';
 import { CommentsService } from '../comments/comments.service';
 import { RatingsComponent } from '../ratings/ratings.component';
 import { RatingsService } from '../ratings/ratings.service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   /*  imports: [
     CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
@@ -29,6 +30,7 @@ import { RatingsService } from '../ratings/ratings.service';
     BarRatingModule,
     MaterialFrameworkModule,
     AppRoutingModule,
+    FlexLayoutModule
   ],
   providers: [AuthGuard, CommentsService, RatingsService],
   entryComponents: [ChangeUserComponent],
@@ -47,7 +49,8 @@ import { RatingsService } from '../ratings/ratings.service';
     AddCardPopupComponent,
     NavigationComponent,
     MaterialFrameworkModule,
-    RatingsComponent
+    RatingsComponent,
+    FlexLayoutModule
   ]
 })
 export class SharedModule {}

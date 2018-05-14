@@ -15,27 +15,23 @@ import { EditCardPopupComponent } from '../../shared-module/popups/edit-card-pop
 export class MypostcardComponent implements OnInit {
   @Input() post;
   posts;
+  isPostUpdated: boolean = false;
   @Output() delete = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() addRatingEmitter = new EventEmitter();
+  editedPost;
   editComponent: EditCardPopupComponent;
   dialogRef: MatDialogRef<EditCardPopupComponent>;
-  editedPost;
-  today: number = Date.now();
   constructor(
     public dialog: MatDialog,
     private postsDataService: PostsDataService
   ) {}
 
+  ngOnInit() {}
   onDelete() {
     this.delete.emit();
   }
-
-  ngOnInit() {
-    //this.postsDataService.getData().subscribe(posts => this.posts = posts);
-  }
-
-  addRating(rating){
+  addRating(rating) {
     this.addRatingEmitter.emit(rating);
   }
   openEditCardPopup() {
@@ -43,8 +39,16 @@ export class MypostcardComponent implements OnInit {
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.editedPost = result;
+
+        if (this.editedPost.editedTitle === undefined) {
+          this.editedPost.editedTitle = this.post.title;
+        }
+        if (this.editedPost.editedDesc === undefined) {
+          this.editedPost.editedDesc = this.post.description;
+        }
         this.editedPost.id = this.post.id;
         this.edit.emit(this.editedPost);
+        console.log(this.post)
       }
     });
   }

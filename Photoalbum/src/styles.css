@@ -1,9 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import 'C:/Users/Dmitry/Desktop/Technologic/Photoalbum/node_modules/ngx-bar-rating/themes/br-stars-theme.css'; */
- @import '../node_modules/ngx-bar-rating/themes/br-stars-theme.css'; 
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+@import '../node_modules/ngx-bar-rating/themes/br-stars-theme.css';
+@import '../node_modules/ngx-bar-rating/themes/br-default-theme.css';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 * {
   margin: 0;
   padding: 0;
 }
+

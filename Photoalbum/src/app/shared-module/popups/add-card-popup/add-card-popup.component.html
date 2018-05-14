@@ -1,26 +1,26 @@
-<div class="AddCardPopup">
-  <label>Image</label>
-  <br>
+<form class="edit-popup-form" [formGroup]="addPopupForm" (ngSubmit)="addPost()">
+  <div class="edit-card-popup">
+    <label>Image</label>
+    <br>
 
-  <input type="file" (change)="onFileSelected($event)">
-  <br><br>
-  <label>Title</label>
-  <br>
-  <mat-form-field>
+    <input type="file" (change)="onFileSelected($event)" required formControlName="img">
+    <br>
+    <br>
+    <label>Заголовок</label>
+    <br>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="newTitle" required formControlName="title">
+    </mat-form-field>
+    <br>
 
-    <input matInput type="text" [(ngModel)]="newTitle">
-  </mat-form-field>
-  <br>
-
-  <label>Descriprion</label>
-  <br>
-  <mat-form-field>
-    <!-- <textarea matInput #description ></textarea>  -->
-    <textarea matInput [(ngModel)]="newDesc"></textarea>
-  </mat-form-field>
-</div>
-<div class="popup-buttons">
-  <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
-  <button mat-raised-button class="popup-btn" (click)="addPost()">Добавить</button>
-</div>
-
+    <label>Описание</label>
+    <br>
+    <mat-form-field>
+      <textarea matInput [(ngModel)]="newDesc" required formControlName="desc"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="popup-buttons">
+    <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
+    <button mat-button class="popup-btn" class="submit" [disabled]="addPopupForm.invalid">Изменить</button>
+  </div>
+</form>

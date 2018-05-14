@@ -14,9 +14,11 @@ import { AuthService } from './../../shared-module/services/auth.service';
   providers: [AddCardPopupComponent]
 })
 export class MyphotosComponent implements OnInit {
+  orderByDefault: boolean = true;
   posts;
   newPost;
   rating;
+  postSort;
   dialogRef: MatDialogRef<AddCardPopupComponent>;
   constructor(
     public dialog: MatDialog,
@@ -28,6 +30,22 @@ export class MyphotosComponent implements OnInit {
   ngOnInit() {
     this.postDataService.getData().subscribe(posts => (this.posts = posts));
     this.isAuth();
+    
+  }
+
+  orderByAlpabet() {
+    this.posts.sort((a, b) => {
+      if (a.title < b.title) return -1;
+      else if (a.title > b.title) return 1;
+      else return 0;
+    });
+  }
+  orderByDate() {
+    this.posts.sort((a, b) => {
+      if (a.uploadDate < b.uploadDate) return -1;
+      else if (a.uploadDate > b.uploadDate) return 1;
+      else return 0;
+    });
   }
 
   deleteMyPost(post: PostsData) {
@@ -42,7 +60,9 @@ export class MyphotosComponent implements OnInit {
       rating: rating
     };
     console.log(this.rating);
-    this.ratingsService.addRaiting(this.rating).subscribe(res => console.log(res));
+    this.ratingsService
+      .addRaiting(this.rating)
+      .subscribe(res => console.log(res));
   }
   editMyPost(editedPost) {
     let imageUrl = editedPost.editedImg;
@@ -52,6 +72,7 @@ export class MyphotosComponent implements OnInit {
     this.postDataService
       .editData({ id, imageUrl, title, description } as PostsData)
       .subscribe(res => {
+        console.log(res)
         this.postDataService.getData().subscribe(posts => (this.posts = posts));
       });
   }

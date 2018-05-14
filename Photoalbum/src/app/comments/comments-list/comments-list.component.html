@@ -1,21 +1,25 @@
 <div class="comments-container">
-
-
-  <button class="show-comment-btn" mat-raised-button color="primary" (click)="showComments(); showHideComments()">
+  <button class="btn show-comment-btn" mat-button color="primary" (click)="showComments(); showHideComments()">
+    <i class="material-icons">comment</i>
     {{isShowedComments == false ? 'Показать комментарии': 'Скрыть комментарии'}}
   </button>
   <ul class="comments-list" *ngIf="isShowedComments">
     <li *ngFor="let comm of photoComments; let i = index">
-      <div class="show-comments" *ngIf="!isEditable">
+      <div class="show-comments" *ngIf="!isEditable && !isNoComment">
         <div>{{comm['text']}}</div>
         <div>Добавлено {{comm['user']}} {{comm['date'] | date: "MMM d yyyy, HH:mm"}}</div>
       </div>
       <div *ngIf="isEditable">
         <app-edit-comment [comm]="comm" (commentText)="editComment($event)"></app-edit-comment>
       </div>
-      <button class="edit-comment--btn" mat-raised-button color="primary" (click)="isCommentEditable()">Редактировать</button>
-      <button class="delete-comment--btn" mat-raised-button color="primary" (click)="deleteComment(comm['id'])">Удалить</button>
+      <button class="edit-comment--btn" mat-icon-button matTooltip="Редактировать" color="primary" (click)="isCommentEditable()">
+        <i class="material-icons">edit</i>
+      </button>
+      <button class="delete-comment--btn" mat-icon-button matTooltip="Удалить" color="primary" (click)="deleteComment(comm['id'])">
+        <i class="material-icons">delete</i>
+      </button>
     </li>
+    <div *ngIf="isNoComment">Комментариев Нет</div> 
   </ul>
-</div>
 
+</div>

@@ -1,12 +1,14 @@
 <mat-card class="post-card">
+  <mat-card-header>
+      <mat-card-title>{{ post.title }}</mat-card-title>
+  </mat-card-header>
   <img mat-card-image src="{{post.imageUrl}}" alt="Photo">
   <mat-card-content>
-    <mat-card-title>{{ post.title }}</mat-card-title>
     <p> {{post.description }}</p>
     <span>Added by {{post.user}}</span>
     <span>{{post.uploadDate | date}}</span>
   </mat-card-content>
-  <app-ratings [post]="post" (ratingEmitter)="addRating()"></app-ratings>
-  <app-comments-wrapper></app-comments-wrapper>
+  <app-ratings (ratingEmitter)="addRating($event)"></app-ratings>
+  <app-comments-wrapper  [post]="post"></app-comments-wrapper>
 </mat-card>
 

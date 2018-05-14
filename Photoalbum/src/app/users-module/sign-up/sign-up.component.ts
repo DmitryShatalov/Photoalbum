@@ -41,4 +41,7 @@ export class SignUpComponent implements OnInit {
       this.error = error.error;
     });
   }
+  goToMainPage(){
+    this.router.navigate([""]);
+  }
 }

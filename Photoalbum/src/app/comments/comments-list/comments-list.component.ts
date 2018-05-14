@@ -11,6 +11,7 @@ export class CommentsListComponent implements OnInit {
   @Input() post;
   //commentsForm: FormGroup;
   // isShowedInput: boolean = false;
+  isNoComment: boolean = false;
   isShowedComments: boolean = false;
   isEditable: boolean = false;
   //comment;
@@ -52,8 +53,13 @@ export class CommentsListComponent implements OnInit {
         return val["comments"];
       })
       .subscribe(res => {
-        //console.log(res);
         this.photoComments = res;
+        console.log(this.photoComments);
+        if (this.photoComments.length === 0) {
+          this.isNoComment = true;
+        } else {
+          this.isNoComment = false;
+        }
       });
   }
 }

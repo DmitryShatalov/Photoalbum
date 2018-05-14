@@ -1,3 +1,4 @@
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 import {PostsData} from '../../../shared-module/posts-data';
 import { Component, OnInit, Input, Inject} from '@angular/core';
 
@@ -10,11 +11,22 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
 })
 export class AddCardPopupComponent implements OnInit {
   img = null;
+  addPopupForm: FormGroup;
   newDesc: string;
   newTitle: string;
   constructor(public dialogRef: MatDialogRef<AddCardPopupComponent>) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.addPopupForm = new FormGroup({
+      img:new FormControl(null, [
+        Validators.required,
+      ]),
+      title: new FormControl(null, [
+        Validators.required,
+      ]),
+      desc: new FormControl(null, [Validators.required])
+    });
+  }
 
   onFileSelected(event){
     this.img = event.target.files[0];

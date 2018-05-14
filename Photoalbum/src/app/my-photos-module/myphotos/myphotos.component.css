@@ -1,10 +1,9 @@
-.addButton-container{
-    padding: 10px;
+.addButton-container {
+  padding: 10px;
+}
 
-}
-mat-grid-list {
-   
-}
-mat-grid-tile{
-margin-top: 50px;
+.flex-card-item {
+  /* min-height: 800px; */
+  margin-top: 10px;
+  width: calc(100% - 70px);
 }

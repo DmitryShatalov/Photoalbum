@@ -11,7 +11,7 @@ import {PostsData} from '../../shared-module/posts-data';
 })
 export class PostCardComponent implements OnInit {
   @Input() post; //Удалить
-  @Output() postEmmiter = new EventEmitter();
+  @Output() addRatingEmmiter = new EventEmitter();
   constructor(private postDataService: PostsDataService) {}
 
   ngOnInit() {
@@ -19,7 +19,7 @@ export class PostCardComponent implements OnInit {
     //console.log(this.post);
   }
 
-  /* addRating(){
-    this.postEmmiter.emit()
-  } */
+   addRating(rating){
+    this.addRatingEmmiter.emit(rating)
+  } 
 }

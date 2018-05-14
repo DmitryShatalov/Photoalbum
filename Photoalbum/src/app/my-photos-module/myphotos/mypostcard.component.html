@@ -1,16 +1,32 @@
-<mat-card class="post-card">
+<mat-card class="post-card mat-typography">
+  <mat-card-header>
+    <mat-card-title>{{ post.title }}</mat-card-title>
+  </mat-card-header>
   <img mat-card-image src="{{post.imageUrl}}" alt="Photo">
   <mat-card-content>
-    <mat-card-title>{{ post.title }}</mat-card-title>
-    <button btn mat-raised-button color="primary" (click)="openEditCardPopup();">Редактировать</button>
-    <button btn mat-raised-button color="primary" (click)="onDelete();">Удалить</button>
+
     <p>
       {{post.description }}
     </p>
 
-    <span>Added by {{post.user}}</span>
+    <span>Добавлено {{post.user}}</span>
     <span>{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
+    <div class="edited" *ngIf="post.editDate">
+      <span>Изменено {{post.user}}</span>
+      <span>{{post.editDate| date: "MMM d yyyy, HH:mm" }}</span>
+    </div>
+    <app-ratings (ratingEmitter)="addRating($event)"></app-ratings>
+    <app-comments-wrapper [post]="post"></app-comments-wrapper>
   </mat-card-content>
-  <app-ratings [post]="post" (ratingEmitter)="addRating($event)"></app-ratings>
-  <app-comments-wrapper [post]="post"></app-comments-wrapper>
+
+  <mat-card-actions>
+    <button mat-button color="primary" class=" btn edit_post-button" (click)="openEditCardPopup();">
+      <!-- <i class="material-icons">border_color</i> -->
+      Редактировать
+    </button>
+    <button mat-button color="primary" class=" btn delete_post-button" (click)="onDelete();">
+      <!-- <i class="material-icons">delete</i> -->
+      Удалить
+    </button>
+  </mat-card-actions>
 </mat-card>
