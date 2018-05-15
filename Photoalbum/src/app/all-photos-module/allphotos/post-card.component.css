@@ -6,9 +6,15 @@
 
 mat-card-title {
   display: inline-block;
+  font-size: 20px !important;
+  font-weight: 500;
 }
 
 .btn {
   display: inline-block;
 }
-
+.post-added-user, .post-edited-user {
+  font-size: 14px;
+  font-weight: 500;
+  color: #3F51B5;
+}

@@ -1,9 +1,8 @@
 <div class="fullRating">
-  <div class="asd">Общий рейтинг:</div>
+  <span class="rating-title">Общий рейтинг:</span>
     <bar-rating [(rate)]="fullRating" [theme]="'default'"></bar-rating>
-
 </div>
 <div class="myRating">
-    <div class="asd">Мой рейтинг:</div>
+    <span class="rating-title">Мой рейтинг:</span>
     <bar-rating [(rate)]="myRating" [theme]="'default'" (rateChange)="addRaiting()"></bar-rating>
 </div>

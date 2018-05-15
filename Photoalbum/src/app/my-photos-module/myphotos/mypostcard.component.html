@@ -8,12 +8,13 @@
     <p>
       {{post.description }}
     </p>
-
-    <span>Добавлено {{post.user}}</span>
-    <span>{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
-    <div class="edited" *ngIf="post.editDate">
-      <span>Изменено {{post.user}}</span>
-      <span>{{post.editDate| date: "MMM d yyyy, HH:mm" }}</span>
+    <div class="post-added">
+      <span class="post-added-user">Добавлено {{post.user}}</span>
+      <span class="post-date">{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
+    </div>
+    <div class="post-edited" *ngIf="post.editDate">
+      <span class="post-edited-user">Изменено {{post.user}}</span>
+      <span class="post-edited-date">{{post.editDate| date: "MMM d yyyy, HH:mm" }}</span>
     </div>
     <app-ratings (ratingEmitter)="addRating($event)"></app-ratings>
     <app-comments-wrapper [post]="post"></app-comments-wrapper>

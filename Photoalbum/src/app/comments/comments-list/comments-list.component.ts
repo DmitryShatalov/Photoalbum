@@ -49,7 +49,6 @@ export class CommentsListComponent implements OnInit {
     });
   }
   showComments() {
-    // this.isShowedComments = !this.isShowedComments;
     this.commentsService
       .getCommentsByPhotoId(this.post.id)
       .map(val => {
@@ -57,6 +56,7 @@ export class CommentsListComponent implements OnInit {
       })
       .subscribe(res => {
         this.photoComments = res;
+        this.orderByDate(); 
         console.log(this.photoComments);
         if (this.photoComments.length === 0) {
           this.isNoComment = true;
@@ -68,15 +68,13 @@ export class CommentsListComponent implements OnInit {
 
   orderByAlpabet() {
     this.photoComments.sort((a, b) => {
-      if (a.text < b.text) return -1;
-      else if (a.text > b.text) return 1;
-      else return 0;
+     return new Intl.Collator().compare(a.text.toLocaleLowerCase(), b.text.toLocaleLowerCase());
     });
   }
   orderByDate() {
     this.photoComments.sort((a, b) => {
-      if (a.date < b.date) return -1;
-      else if (a.date > b.date) return 1;
+      if ( Date.parse(a.date)  < Date.parse(b.date)) return -1;
+      else if (Date.parse(a.date) > Date.parse(b.date)) return 1;
       else return 0;
     });
   }

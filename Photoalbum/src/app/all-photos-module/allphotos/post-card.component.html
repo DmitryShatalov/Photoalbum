@@ -1,14 +1,21 @@
 <mat-card class="post-card">
   <mat-card-header>
-      <mat-card-title>{{ post.title }}</mat-card-title>
+    <mat-card-title>{{ post.title }}</mat-card-title>
   </mat-card-header>
   <img mat-card-image src="{{post.imageUrl}}" alt="Photo">
   <mat-card-content>
-    <p> {{post.description }}</p>
-    <span>Added by {{post.user}}</span>
-    <span>{{post.uploadDate | date}}</span>
+    <p>
+      {{post.description }}
+    </p>
+    <div class="post-added">
+      <span class="post-added-user">Добавлено {{post.user}}</span>
+      <span class="post-date">{{post.uploadDate | date: "MMM d yyyy, HH:mm" }}</span>
+    </div>
+    <div class="post-edited" *ngIf="post.editDate">
+      <span class="post-edited-user">Изменено {{post.user}}</span>
+      <span class="post-edited-date">{{post.editDate| date: "MMM d yyyy, HH:mm" }}</span>
+    </div>
   </mat-card-content>
   <app-ratings (ratingEmitter)="addRating($event)"></app-ratings>
-  <app-comments-wrapper  [post]="post"></app-comments-wrapper>
+  <app-comments-wrapper [post]="post"></app-comments-wrapper>
 </mat-card>
-

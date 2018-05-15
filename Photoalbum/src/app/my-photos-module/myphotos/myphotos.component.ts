@@ -33,7 +33,7 @@ export class MyphotosComponent implements OnInit {
     
   }
 
-  orderByAlpabet() {
+  /* orderByAlpabet() {
     this.posts.sort((a, b) => {
       if (a.title < b.title) return -1;
       else if (a.title > b.title) return 1;
@@ -46,7 +46,7 @@ export class MyphotosComponent implements OnInit {
       else if (a.uploadDate > b.uploadDate) return 1;
       else return 0;
     });
-  }
+  } */
 
   deleteMyPost(post: PostsData) {
     this.postDataService.deleteData(post.id).subscribe(res => {
