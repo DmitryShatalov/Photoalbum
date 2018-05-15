@@ -1,5 +1,5 @@
 import { FormGroup, Validators, FormControl } from '@angular/forms';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { CommentsService } from '../../comments/comments.service';
 
 @Component({
@@ -9,13 +9,11 @@ import { CommentsService } from '../../comments/comments.service';
 })
 export class CommentsListComponent implements OnInit {
   @Input() post;
-  //commentsForm: FormGroup;
-  // isShowedInput: boolean = false;
+  orderByDefault: boolean = true;
   isNoComment: boolean = false;
   isShowedComments: boolean = false;
-  isEditable: boolean = false;
-  //comment;
-  photoComments: string[];
+  isEditable = [];
+  photoComments = [];
   constructor(private commentsService: CommentsService) {}
 
   ngOnInit() {}
@@ -25,7 +23,6 @@ export class CommentsListComponent implements OnInit {
   }
 
   editComment(event) {
-    console.log(event);
     this.commentsService.editComments(event).subscribe(res => {
       let comment = this.photoComments.find(x => x["id"] == event.commentId);
       let commentIndex = this.photoComments.indexOf(comment);
@@ -34,11 +31,17 @@ export class CommentsListComponent implements OnInit {
         commentIndex,
         commentIndex++
       );
-      this.isEditable = event.isEditable;
+      this.isEditable[commentIndex - 1] = false;
     });
   }
-  isCommentEditable() {
-    this.isEditable = !this.isEditable;
+  isCommentEditable(index) {
+    if (!this.isEditable) {
+      for (let i = 0; i < this.photoComments.length; i++) {
+        this.isEditable[index] = false;
+      }
+    }
+
+    this.isEditable[index] = !this.isEditable[index];
   }
   deleteComment(id) {
     this.commentsService.deleteCommentById(id).subscribe(res => {
@@ -61,6 +64,21 @@ export class CommentsListComponent implements OnInit {
           this.isNoComment = false;
         }
       });
+  }
+
+  orderByAlpabet() {
+    this.photoComments.sort((a, b) => {
+      if (a.text < b.text) return -1;
+      else if (a.text > b.text) return 1;
+      else return 0;
+    });
+  }
+  orderByDate() {
+    this.photoComments.sort((a, b) => {
+      if (a.date < b.date) return -1;
+      else if (a.date > b.date) return 1;
+      else return 0;
+    });
   }
 }
 

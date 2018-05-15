@@ -10,13 +10,11 @@ import {PostsData} from '../../shared-module/posts-data';
   styleUrls: ["./post-card.component.css"]
 })
 export class PostCardComponent implements OnInit {
-  @Input() post; //Удалить
+  @Input() post; 
   @Output() addRatingEmmiter = new EventEmitter();
   constructor(private postDataService: PostsDataService) {}
 
   ngOnInit() {
-    //this.postDataService.getData().subscribe(posts => this.posts = posts);
-    //console.log(this.post);
   }
 
    addRating(rating){

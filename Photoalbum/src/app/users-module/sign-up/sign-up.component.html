@@ -10,14 +10,12 @@
 <body>
 
   <form class="sign-up-form" [formGroup]="registerForm" (ngSubmit)="registerUser()">
-    <!-- <div class="form-group" [ngClass]="{'has-error: loginForm.get('login').invalid && loginForm.get('login').touched'}"> -->
     <div class="alert" *ngIf="error">{{error}}</div>
     <mat-form-field class="login">
       <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
     </mat-form-field>
     <span class="form-error-text" *ngIf="registerForm.get('login').invalid && registerForm.get('login').touched">
       <span *ngIf="registerForm.get('login')['errors'] ['required']">Логин не может быть пустым.</span>
-      <!-- <span *ngIf="registerForm.get('login')['errors'] ['forbiddenLogin']">Такой Логин уже существует.</span> -->
     </span>
 
     <mat-form-field class="password">
@@ -40,7 +38,6 @@
 
     <button mat-raised-button class="submit" color="primary" [disabled]="registerForm.invalid">Зарегистрироваться</button>
     <button mat-raised-button class="go-to-main-page" color="primary" (click)="goToMainPage()">На Главную</button>
-    <!-- </div> -->
   </form>
 
 

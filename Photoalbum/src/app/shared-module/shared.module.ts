@@ -18,10 +18,6 @@ import { RatingsComponent } from '../ratings/ratings.component';
 import { RatingsService } from '../ratings/ratings.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
-  /*  imports: [
-    CommonModule,ReactiveFormsModule, BrowserAnimationsModule, MatToolbarModule, MatCardModule, MatButtonModule, MatGridListModule, FormsModule, BarRatingModule, MatMenuModule, 
-    MatInputModule, MatDialogModule, AppRoutingModule
-  ], */
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -14,7 +14,6 @@ import { CommentsModule } from '../comments/comments.module';
   imports: [
     CommonModule,SharedModule, CommentsModule
   ],
-  //providers:[CommentsService],
   declarations: [MyphotosComponent, MypostcardComponent],
   entryComponents: [AddCardPopupComponent, EditCardPopupComponent ],
   exports:[ MyphotosComponent, MypostcardComponent]

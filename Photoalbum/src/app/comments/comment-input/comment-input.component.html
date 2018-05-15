@@ -1,0 +1,10 @@
+ <form class="commentsForm" [formGroup]="commentInputForm" (ngSubmit)="addComment()">
+ <!-- <div class="show-input-wrapper" *ngIf="isShowedInput">  -->
+    <mat-form-field>
+      <textarea matInput placeholder="Введите комментарий" formControlName="comment"></textarea>
+    </mat-form-field>
+    <button class="submit-btn" mat-icon-button matTooltip="Отправить" color="primary" type="submit">
+      <i class="material-icons">send</i>
+    </button>
+  <!-- </div> -->
+</form> 

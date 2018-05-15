@@ -29,12 +29,9 @@ export class NavigationComponent implements OnInit {
     this.usersDataService.getCurrentUser().subscribe(data => {
       this.userName = data["user"]["name"];
     });
-    //this.userName = this.authService.getUser();
-    //console.log(this.authService.getUser());
   }
 
   logout() {
-    //this.userService.logoutUser(this.user);
     this.authService.logout();
     this.router.navigate([""]);
   }

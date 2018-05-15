@@ -22,11 +22,4 @@ export class AuthService {
   isLoggedIn(): boolean {
     return this.isAuth;
   }
-  /* getUser() {
-    if (this.isAuth) {
-      this.userDataService.getCurrentUser().subscribe(data => {
-        return data;
-      });
-    } else return null;
-  } */
 }

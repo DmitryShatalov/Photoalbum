@@ -2,13 +2,8 @@
   <i class="material-icons">add_comment</i>
   Добавить комментарий
 </button>
-<form class="commentsForm" [formGroup]="commentsForm" (ngSubmit)="addComment()">
-  <div class="show-input-wrapper" *ngIf="isShowedInput">
-    <mat-form-field>
-      <textarea matInput placeholder="Введите комментарий" formControlName="comment"></textarea>
-    </mat-form-field>
-    <button class="submit-btn" mat-button color="primary" type="submit">
-      <i class="material-icons">send</i>
-      Отправить</button>
-  </div>
-</form>
+<div class="show-input-wrapper" *ngIf="isShowedInput">
+  <app-comment-input (sendComment)="addComment($event)"></app-comment-input>
+</div>
+<div class="show-input-wrapper" *ngIf="isShowedInput">
+  

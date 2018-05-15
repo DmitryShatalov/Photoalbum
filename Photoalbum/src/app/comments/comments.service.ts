@@ -20,7 +20,6 @@ export class CommentsService {
   }
 
   editComments(comment) {
-    //let url = `${this.postsUrl + "comments"}/${id}`;
     return this.http.put(this.postsUrl + "comments", comment);
   }
 

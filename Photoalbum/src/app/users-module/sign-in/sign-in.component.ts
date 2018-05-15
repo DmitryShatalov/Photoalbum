@@ -35,14 +35,12 @@ export class SignInComponent implements OnInit {
 
   loginUser() {
     const formData = this.loginForm.value;
-    //console.log(formData);
     this.usersService.loginUser(formData).subscribe(res => {
       if (res) {
         console.log(res);
         window.localStorage.setItem("token", JSON.stringify(res["token"]));
         this.authService.login();
         this.router.navigate(["myphotos"]);
-        // this.usersService.getCurrentUser().subscribe(data => console.log(data));
       } else {
         console.log("fail");
       }

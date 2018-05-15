@@ -1,3 +1,4 @@
+
 .comments-container {
   height: auto;
 }
@@ -17,4 +18,11 @@ ul {
 .btn {
   padding: 0;
   white-space: normal;
+}
+
+.comment-user{
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3F51B5;
 }
