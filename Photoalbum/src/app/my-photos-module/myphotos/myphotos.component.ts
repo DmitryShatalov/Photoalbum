@@ -1,11 +1,17 @@
-import { RatingsService } from './../../ratings/ratings.service';
-import { Observable } from 'rxjs/Observable';
-import {PostsData} from '../../shared-module/posts-data';
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import {PostsDataService} from '../../shared-module/services/posts-data.service';
-import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup/add-card-popup.component'
-import { AuthService } from './../../shared-module/services/auth.service';
+import { DeleteCardPopupComponent } from "./../../shared-module/popups/delete-card-popup/delete-card-popup.component";
+import { RatingsService } from "./../../ratings/ratings.service";
+import { Observable } from "rxjs/Observable";
+import { PostsData } from "../../shared-module/posts-data";
+import { Component, OnInit } from "@angular/core";
+import {
+  MatDialog,
+  MatDialogModule,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material";
+import { PostsDataService } from "../../shared-module/services/posts-data.service";
+import { AddCardPopupComponent } from "../../shared-module/popups/add-card-popup/add-card-popup.component";
+import { AuthService } from "./../../shared-module/services/auth.service";
 
 @Component({
   selector: "app-myphotos",
@@ -19,7 +25,7 @@ export class MyphotosComponent implements OnInit {
   newPost;
   rating;
   postSort;
-  dialogRef: MatDialogRef<AddCardPopupComponent>;
+
   constructor(
     public dialog: MatDialog,
     private postDataService: PostsDataService,
@@ -30,7 +36,6 @@ export class MyphotosComponent implements OnInit {
   ngOnInit() {
     this.postDataService.getData().subscribe(posts => (this.posts = posts));
     this.isAuth();
-    
   }
 
   /* orderByAlpabet() {
@@ -48,10 +53,12 @@ export class MyphotosComponent implements OnInit {
     });
   } */
 
-  deleteMyPost(post: PostsData) {
-    this.postDataService.deleteData(post.id).subscribe(res => {
-      this.posts = this.posts.filter(p => p.id !== post.id);
-    });
+  deleteMyPost(event, post: PostsData) {
+    if (event) {
+      this.postDataService.deleteData(post.id).subscribe(res => {
+        this.posts = this.posts.filter(p => p.id !== post.id);
+      });
+    }
   }
 
   addRating(rating, post) {
@@ -72,14 +79,15 @@ export class MyphotosComponent implements OnInit {
     this.postDataService
       .editData({ id, imageUrl, title, description } as PostsData)
       .subscribe(res => {
-        console.log(res)
+        console.log(res);
         this.postDataService.getData().subscribe(posts => (this.posts = posts));
       });
   }
   openAddCardPopup() {
-    this.dialogRef = this.dialog.open(AddCardPopupComponent);
+    let dialogRef: MatDialogRef<AddCardPopupComponent>;
+    dialogRef = this.dialog.open(AddCardPopupComponent);
 
-    this.dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       if (result) {
         const fd = new FormData();
         fd.append("file", result.newImg, result.newImg.name);
@@ -98,4 +106,3 @@ export class MyphotosComponent implements OnInit {
     return this.authService.isLoggedIn();
   }
 }
-

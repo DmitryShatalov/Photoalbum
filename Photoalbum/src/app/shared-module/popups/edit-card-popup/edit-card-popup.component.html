@@ -2,7 +2,7 @@
   <label>Заголовок</label>
   <br>
   <mat-form-field>
-    <input matInput type="text" [(ngModel)]="editedTitle">
+    <input matInput type="text" value="ssss" [(ngModel)]="editedTitle">
   </mat-form-field>
   <br>
 
@@ -13,6 +13,6 @@
   </mat-form-field>
 </div>
 <div class="popup-buttons">
-  <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
-  <button mat-button class="popup-btn" (click)="editPost()">Изменить</button>
+  <button mat-button mat-dialog-close color="primary" class="popup-btn">Отмена</button>
+  <button mat-button class="popup-btn" color="primary" (click)="editPost()">Изменить</button>
 </div>

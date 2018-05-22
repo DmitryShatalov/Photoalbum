@@ -10,6 +10,7 @@ import {PostsDataService} from '../../../shared-module/services/posts-data.servi
   styleUrls: ["./add-card-popup.component.css"]
 })
 export class AddCardPopupComponent implements OnInit {
+  fileName: string;
   img = null;
   addPopupForm: FormGroup;
   newDesc: string;
@@ -30,6 +31,7 @@ export class AddCardPopupComponent implements OnInit {
 
   onFileSelected(event){
     this.img = event.target.files[0];
+    this.fileName = event.target.files[0].name;
     
   }
   addPost() {

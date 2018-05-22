@@ -6,6 +6,7 @@ import {PostsDataService} from '../../shared-module/services/posts-data.service'
 import { AddCardPopupComponent } from '../../shared-module/popups/add-card-popup/add-card-popup.component'
 import { MatDialogRef, MatDialog } from '@angular/material';
 import { EditCardPopupComponent } from '../../shared-module/popups/edit-card-popup/edit-card-popup.component';
+import { DeleteCardPopupComponent } from '../../shared-module/popups/delete-card-popup/delete-card-popup.component';
 
 @Component({
   selector: "app-mypostcard",
@@ -29,13 +30,27 @@ export class MypostcardComponent implements OnInit {
 
   ngOnInit() {}
   onDelete() {
-    this.delete.emit();
+    
+    let dialogRef = this.dialog.open(DeleteCardPopupComponent, {
+      data: {posts: this.posts, post: this.post}
+
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.delete.emit(result);
+    });
+ 
   }
   addRating(rating) {
     this.addRatingEmitter.emit(rating);
   }
   openEditCardPopup() {
-    this.dialogRef = this.dialog.open(EditCardPopupComponent);
+    this.dialogRef = this.dialog.open(EditCardPopupComponent,{
+      data: {
+        post: this.post
+      }
+    });
     this.dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.editedPost = result;

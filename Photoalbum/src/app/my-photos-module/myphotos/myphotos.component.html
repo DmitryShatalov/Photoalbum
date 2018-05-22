@@ -10,14 +10,17 @@
           </mat-radio-button>
       </mat-radio-group> -->
     <div class="addButton-container">
-      <button mat-raised-button color="primary" (click)="openAddCardPopup();">Добавить фото</button>
+      <button class="add-button" mat-fab color="primary" (click)="openAddCardPopup();"><i class="material-icons">
+        add
+        </i></button>
     </div>
 
 
     <div class="flex-card-container" fxLayout="row wrap" fxLayout.xs="column">
-      <div class="flex-card-item" *ngFor="let post of posts;let i = index" fxFlex="25" >
-        <app-mypostcard  [post]="post" (delete)="deleteMyPost(post)" (edit)="editMyPost($event)" (addRatingEmitter)= "addRating($event, post)"></app-mypostcard>
+      <div class="flex-card-item" *ngFor="let post of posts;let i = index">
+        <app-mypostcard  [post]="post" (delete)="deleteMyPost($event, post)" (edit)="editMyPost($event)" (addRatingEmitter)= "addRating($event, post)"></app-mypostcard>
       </div>
   </div>
 </div>
+
 

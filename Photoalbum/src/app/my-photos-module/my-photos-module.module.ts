@@ -1,3 +1,4 @@
+import { DeleteCardPopupComponent } from './../shared-module/popups/delete-card-popup/delete-card-popup.component';
 import { CommentsService } from './../comments/comments.service';
 import { SharedModule } from './../shared-module/shared.module';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,7 @@ import { CommentsModule } from '../comments/comments.module';
     CommonModule,SharedModule, CommentsModule
   ],
   declarations: [MyphotosComponent, MypostcardComponent],
-  entryComponents: [AddCardPopupComponent, EditCardPopupComponent ],
+  entryComponents: [AddCardPopupComponent, EditCardPopupComponent, DeleteCardPopupComponent ],
   exports:[ MyphotosComponent, MypostcardComponent]
 })
 export class MyPhotosModule { }

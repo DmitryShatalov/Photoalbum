@@ -5,6 +5,7 @@
 
 ul {
   list-style: none;
+  word-wrap: break-word;
 }
 
 .show-comment-btn {
@@ -25,4 +26,8 @@ ul {
   font-size: 14px;
   font-weight: 500;
   color: #3F51B5;
+}
+.comment-text{
+  margin-top: -18px;
+  white-space: pre-line;
 }

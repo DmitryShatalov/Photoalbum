@@ -1,7 +1,6 @@
 .post-card {
   margin-top: 20px;
   /* min-height: 850px; */
-  width: calc(100% - 70px);
 }
 
 mat-card-title {

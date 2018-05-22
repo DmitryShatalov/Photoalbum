@@ -1,12 +1,20 @@
-<form class="edit-popup-form" [formGroup]="addPopupForm" (ngSubmit)="addPost()">
-  <div class="edit-card-popup">
-    <label>Image</label>
-    <br>
+<form class="add-popup-form" [formGroup]="addPopupForm" (ngSubmit)="addPost()">
+  <div class="add-card-popup">
+    <div class="image-input-wrapper">
+      <label>Фотография</label>
+      <br>
 
-    <input type="file" (change)="onFileSelected($event)" required formControlName="img">
-    <br>
-    <br>
-    <label>Заголовок</label>
+      <!-- <input type="file" (change)="onFileSelected($event)" required formControlName="img"> -->
+      <input hidden="true" type="file" id="file-input" (change)="onFileSelected($event)" required formControlName="img">
+      <label class="image-input-label" for="file-input">
+        <a mat-button color="primary" class="btn" >
+          <i class="material-icons">file_upload</i>
+          Загрузить файл
+        </a>
+        {{fileName}}
+      </label>
+    </div>
+    <label class="title-label">Заголовок</label>
     <br>
     <mat-form-field>
       <input matInput type="text" [(ngModel)]="newTitle" required formControlName="title">
@@ -20,7 +28,7 @@
     </mat-form-field>
   </div>
   <div class="popup-buttons">
-    <button mat-button mat-dialog-close class="popup-btn">Отмена</button>
-    <button mat-button class="popup-btn" class="submit" [disabled]="addPopupForm.invalid">Добавить</button>
+    <button mat-button mat-dialog-close color="primary" class="popup-btn">Отмена</button>
+    <button mat-button class="popup-btn" color="primary" class="submit" [disabled]="addPopupForm.invalid">Добавить</button>
   </div>
 </form>

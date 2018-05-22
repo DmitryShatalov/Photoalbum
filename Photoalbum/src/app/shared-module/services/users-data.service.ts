@@ -30,7 +30,7 @@ export class UsersDataService {
   logoutUser(user: User) {
     return this.http.post(this.url + "logout", user, httpOptions);
   }
-  changeUser(user: User) {
+  changeUser(user) {
     return this.http.put(this.url + "changeUser", user, httpOptions);
   }
 }

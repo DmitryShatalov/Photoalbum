@@ -17,6 +17,8 @@ import { MatDialogRef, MatDialog } from '@angular/material';
 export class NavigationComponent implements OnInit {
   @Input() isAuth;
   userName;
+  currentUser;
+  login;
   dialogRef: MatDialogRef<ChangeUserComponent>;
   constructor(
     public dialog: MatDialog,
@@ -27,7 +29,9 @@ export class NavigationComponent implements OnInit {
   ) {}
   ngOnInit() {
     this.usersDataService.getCurrentUser().subscribe(data => {
-      this.userName = data["user"]["name"];
+      console.log(data);
+      this.userName = data['name'];
+     this.currentUser = data;
     });
   }
 
@@ -36,26 +40,38 @@ export class NavigationComponent implements OnInit {
     this.router.navigate([""]);
   }
   changeUser() {
-    this.dialogRef = this.dialog.open(ChangeUserComponent);
+    this.dialogRef = this.dialog.open(ChangeUserComponent, {
+     /*  data:{
+        currentUser: this.currentUser
+      } */
+    });
     this.dialogRef.afterClosed().subscribe(result => {
       this.usersDataService
         .getCurrentUser()
-        .map(mappedData => {
+       /*  .map(mappedData => {
           return mappedData["user"];
-        })
+        }) */
         .subscribe(user => {
+          console.log(user);
           if (result) {
-            user.login = result.newLogin;
-            user.name = result.newName;
+            //console.log(result.newLogin);
+            user['login'] = result.newLogin;
+            user['name'] = result.newName;
             this.usersDataService.changeUser(user).subscribe(data => {
               if (data) {
                 this.userName = result.newName;
               } else {
-                this.userName = user.name;
+                this.userName = user['name'];
               }
             });
           }
         });
     });
   }
+
+  
+
+  
+ 
+  
 }

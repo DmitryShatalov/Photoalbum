@@ -4,7 +4,7 @@
     {{isShowedComments == false ? 'Показать комментарии': 'Скрыть комментарии'}}
   </button>
   <ul class="comments-list" *ngIf="isShowedComments">
-    <mat-radio-group class="example-radio-group" *ngIf="!isNoComment">
+    <mat-radio-group class="example-radio-group" *ngIf="isComment">
       <mat-radio-button class="example-radio-button" value="alphabet" color="primary" (change)="orderByAlpabet()">
         По алфавиту
       </mat-radio-button>
@@ -28,10 +28,10 @@
       <div *ngIf="isEditable[i]">
         <app-edit-comment [comm]="comm" (commentText)="editComment($event)"></app-edit-comment>
       </div>
-      <button class="edit-comment--btn" mat-icon-button matTooltip="Редактировать" color="primary" (click)="isCommentEditable(i)">
+      <button class="edit-comment--btn" mat-icon-button color="primary" (click)="isCommentEditable(i)">
         <i class="material-icons">edit</i>
       </button>
-      <button class="delete-comment--btn" mat-icon-button matTooltip="Удалить" color="primary" (click)="deleteComment(comm['id'])">
+      <button class="delete-comment--btn" mat-icon-button color="primary" (click)="deleteComment(comm['id'])">
         <i class="material-icons">delete</i>
       </button>
       <mat-divider></mat-divider>

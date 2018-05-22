@@ -8,29 +8,29 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CommentInputComponent implements OnInit {
   comment: { isShowedInput: any; text: any; };
+  commentValue;
   isShowedInput: boolean;
-  commentInputForm: any;
+  commentInputForm: FormGroup;
   @Output() sendComment = new EventEmitter();
   constructor() { }
-
+  
   ngOnInit() {
     this.commentInputForm = new FormGroup({
-      comment: new FormControl(null, [
+      commentControl: new FormControl(null, [
         Validators.required,
         Validators.maxLength(200),
         Validators.minLength(1)
       ])
     });
+    console.log(this.commentInputForm.controls['commentControl']);
   }
   addComment() {
     this.comment = {
-      text: this.commentInputForm.value.comment,
+      text: this.commentInputForm.value.commentControl,
       isShowedInput: this.isShowedInput = false
     };
     this.sendComment.emit(this.comment);
     this.commentInputForm.reset();
-    this.commentInputForm.markAsUntouched();
-    this.commentInputForm.markAsPristine();
-   
+  
   }
 }

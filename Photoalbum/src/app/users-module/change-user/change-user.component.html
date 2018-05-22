@@ -1,22 +1,41 @@
 <div class="ChangeUserPopup">
+  <h1 class="mat-h1">Профиль</h1>
   <div class="change-login">
-    <label>Новый логин</label>
-    <br>
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="newLogin">
-    </mat-form-field>
-    <br>
-  </div>
-  <div class="change-name">
-    <label>Новое имя</label>
-    <br>
-    <mat-form-field>
-      <input matInput [(ngModel)]="newName">
-    </mat-form-field>
-  </div>
-</div>
-<div class="popup-buttons">
-  <button mat-button class="popup-btn" (click)="changeUser()">Изменить</button>
-  <button mat-button mat-dialog-close class="popup-btn" (click)="closeChangePopup()">Отмена</button>
-</div>
 
+    <div *ngIf="!isNameEditable">
+      <div class="mat-title">Имя</div>
+      <span>{{newName}}</span>
+      <button mat-icon-button color="primary" (click)="editName()">
+        <i class="material-icons">
+          edit
+        </i>
+      </button>
+    </div>
+    <div *ngIf="isNameEditable">
+      <mat-form-field>
+        <input matInput placeholder="Введите имя" [(ngModel)]="newName">
+      </mat-form-field>
+    </div>
+    <div *ngIf="!isLoginEditable">
+      <div class="mat-title">Логин</div>
+      <span>{{newLogin}}</span>
+      <button mat-icon-button color="primary" (click)="editLogin()">
+        <i class="material-icons">
+          edit
+        </i>
+      </button>
+    </div>
+    <div *ngIf="isLoginEditable">
+      <mat-form-field>
+        <input matInput placeholder="Введите логин" [(ngModel)]="newLogin">
+      </mat-form-field>
+      <!-- <button mat-button>edit</button> -->
+    </div>
+
+
+    <div class="popup-buttons">
+      <button mat-button color="primary" mat-dialog-close class="popup-btn" (click)="closeChangePopup()">Отмена</button>
+      <button mat-button color="primary" class="popup-btn" (click)="changeUser()">Изменить</button>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
+.flex-card-container :first-child {
+  margin-top: 12%;
+}
 .flex-card-item {
   /* min-height: 800px; */
-  margin-top: 10px;
-  width: calc(100% - 70px);
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px; 
 }
 

@@ -1,44 +1,29 @@
 <mat-toolbar color="primary" *ngIf="!isAuth">
-  <mat-toolbar-row>
-    <button mat-button [matMenuTriggerFor]="menu">Меню</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="">
-        <a>Все фотографии</a>
-      </button>
-      <button mat-menu-item routerLink="/myphotos">
-        <a>Мои фотографии</a>
-      </button>
-    </mat-menu>
+  <a mat-button routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+    true}">Все фото</a>
 
-    <button class="register" mat-button [matMenuTriggerFor]="sign">Вход/Регистрация</button>
-    <mat-menu #sign="matMenu">
-      <button mat-menu-item routerLink="/login">
-        <a>Вход</a>
-      </button>
-      <button mat-menu-item routerLink="/register">
-        <a>Регистрация</a>
-      </button>
-    </mat-menu>
-  </mat-toolbar-row>
+  <a mat-button routerLink="/myphotos" routerLinkActive="active">Мои фото</a>
+
+
+  <a mat-button routerLink="/login" routerLinkActive="active">
+    <a>Вход</a>
+  </a>
+  <a mat-button routerLink="/register" routerLinkActive="active">
+    <a>Регистрация</a>
+  </a>
 </mat-toolbar>
 
 <mat-toolbar color="primary" *ngIf="isAuth">
-  <mat-toolbar-row>
-    <button mat-button [matMenuTriggerFor]="menu">Меню</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="">
-        <a>Все фотографии</a>
-      </button>
-      <button mat-menu-item routerLink="/myphotos">
-        <a>Мои фотографии</a>
-      </button>
-    </mat-menu>
-    <div class="register">
-      <!-- <span class="greetings"> Здравствуйте,</span> -->
-      <button mat-button class="greetings" (click)="changeUser()"> Здравствуйте, {{userName}}</button>
-      <button mat-button (click)="logout()">Выход</button>
-    </div>
 
-  </mat-toolbar-row>
+
+  <a mat-button routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+    true}">Все фото</a>
+
+  <a mat-button routerLink="/myphotos" routerLinkActive="active">Мои фото</a>
+  <a mat-button class="greetings" (click)="changeUser()">
+    Профиль
+  </a>
+  <a mat-button (click)="logout()" routerLinkActive="active">Выход</a>
+
+
 </mat-toolbar>
-

@@ -1,8 +1,8 @@
-<button class=" btn show-comment-input-btn" mat-button color="primary" (click)="showCommentInput()">
+<!-- <button class=" btn show-comment-input-btn" mat-button color="primary" (click)="showCommentInput()">
   <i class="material-icons">add_comment</i>
   Добавить комментарий
-</button>
-<div class="show-input-wrapper" *ngIf="isShowedInput">
+</button> -->
+<div class="show-input-wrapper" >
   <app-comment-input (sendComment)="addComment($event)"></app-comment-input>
 </div>
 <div class="show-input-wrapper" *ngIf="isShowedInput">

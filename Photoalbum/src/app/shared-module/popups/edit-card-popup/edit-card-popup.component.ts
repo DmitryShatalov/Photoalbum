@@ -13,16 +13,17 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EditCardPopupComponent implements OnInit {
   //@Input() id: number;
   editPopupForm: FormGroup;
-  editedTitle: string;
-  editedDesc: string;
+  editedTitle: string = this.data.post.title;;
+  editedDesc: string = this.data.post.description;;
   editedPost: PostsData;
-  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>) {}
+  constructor(public dialogRef: MatDialogRef<EditCardPopupComponent>, @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   ngOnInit() {
     this.editPopupForm = new FormGroup({});
   }
 
   editPost() {
+    
     this.dialogRef.close({
       editedTitle: this.editedTitle,
       editedDesc: this.editedDesc

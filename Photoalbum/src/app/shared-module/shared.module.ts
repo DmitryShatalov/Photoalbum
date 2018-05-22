@@ -17,6 +17,7 @@ import { CommentsService } from '../comments/comments.service';
 import { RatingsComponent } from '../ratings/ratings.component';
 import { RatingsService } from '../ratings/ratings.service';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DeleteCardPopupComponent } from './popups/delete-card-popup/delete-card-popup.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -34,7 +35,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     EditCardPopupComponent,
     AddCardPopupComponent,
     NavigationComponent, 
-    RatingsComponent
+    RatingsComponent, DeleteCardPopupComponent
   ],
   exports: [
     BrowserAnimationsModule,

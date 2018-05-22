@@ -1,9 +1,11 @@
 .post-card {
-  margin-top: 20px;
   /* min-height: 850px; */
-  width: calc(100% - 70px);
+  margin:0 auto;
+ 
 }
-
+.post-card :first-child{
+ 
+}
 mat-card-title {
   display: inline-block;
   font-size: 20px !important;

@@ -11,6 +11,7 @@ export class CommentsListComponent implements OnInit {
   @Input() post;
   orderByDefault: boolean = true;
   isNoComment: boolean = false;
+  isComment: boolean = false;
   isShowedComments: boolean = false;
   isEditable = [];
   photoComments = [];
@@ -60,8 +61,10 @@ export class CommentsListComponent implements OnInit {
         console.log(this.photoComments);
         if (this.photoComments.length === 0) {
           this.isNoComment = true;
+          this.isComment = false;
         } else {
           this.isNoComment = false;
+          this.isComment = true;
         }
       });
   }

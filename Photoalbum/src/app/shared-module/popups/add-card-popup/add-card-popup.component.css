@@ -1,10 +1,29 @@
-.AddCardPopup{
-    width: 300px;
-    height: 400px;
+.add-popup-form {
+  min-width: 250px;
 }
-textarea{
-    height: 200px;
+
+textarea {
+  min-height: 200px;
+ 
 }
-mat-form-field{
-    width: 280px;
+
+mat-form-field {
+    width: 100%;
+}
+
+.popup-buttons {
+  float: right;
+}
+
+.image-input-label {
+  display: block;
+  width: 100%;
+  height: auto;
+  word-wrap: break-word;
+  padding-bottom: 15px;
+}
+
+.btn{
+    margin-top: 10px;
+    padding-left: 0;
 }
