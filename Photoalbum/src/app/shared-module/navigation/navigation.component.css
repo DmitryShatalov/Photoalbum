@@ -5,6 +5,7 @@ mat-toolbar {
     width: 100%; 
     z-index: 10;
     height: 42px;
+    padding: 0;
 
 }
 nav a{
@@ -31,6 +32,6 @@ a {
 }
 
 .active{
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid #2196F3;
     border-radius: 0;
   }

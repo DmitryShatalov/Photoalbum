@@ -31,7 +31,7 @@ export class CommentsListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-   console.log(this.commentsDataService.getPhotoComments(this.post)) ;
+   //console.log(this.commentsDataService.getPhotoComments(this.post)) ;
     this.usersDataService.getCurrentUser().subscribe(res => {
       this.currentUserId = res["id"];
     });

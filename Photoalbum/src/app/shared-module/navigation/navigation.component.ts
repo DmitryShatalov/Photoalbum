@@ -28,11 +28,11 @@ export class NavigationComponent implements OnInit {
     private userService: UserService
   ) {}
   ngOnInit() {
-    this.usersDataService.getCurrentUser().subscribe(data => {
+   /*  this.usersDataService.getCurrentUser().subscribe(data => {
       console.log(data);
       this.userName = data['name'];
      this.currentUser = data;
-    });
+    }); */
   }
 
   logout() {

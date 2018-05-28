@@ -1,4 +1,3 @@
-body {}
 
 .sign-in-form {
   padding-top: 30px;
@@ -8,8 +7,7 @@ body {}
 }
 
 .login,
-.password,
-.submit {
+.password {
   display: block;
   width: 200px;
   margin: 0 auto;
@@ -24,6 +22,8 @@ body {}
 }
 
 .submit {
+  display: block;
+  margin: 0 auto;
   margin-top: 50px;
 }
 
@@ -38,4 +38,8 @@ body {}
   margin: 0 auto;
   margin-top: 15px;
   width: 200px;
+}
+.card-actions{
+  margin: 0 auto;
+  width: 100%;
 }

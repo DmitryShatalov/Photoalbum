@@ -2,30 +2,19 @@
   <h1 class="mat-h1">Профиль</h1>
   <div class="change-login">
 
-    <div *ngIf="!isNameEditable">
+  
       <div class="mat-title">Имя</div>
-      <span>{{newName}}</span>
-      <button mat-icon-button color="primary" (click)="editName()">
-        <i class="material-icons">
-          edit
-        </i>
-      </button>
-    </div>
-    <div *ngIf="isNameEditable">
+    
+    
+   
       <mat-form-field>
         <input matInput placeholder="Введите имя" [(ngModel)]="newName">
       </mat-form-field>
-    </div>
-    <div *ngIf="!isLoginEditable">
+    
       <div class="mat-title">Логин</div>
-      <span>{{newLogin}}</span>
-      <button mat-icon-button color="primary" (click)="editLogin()">
-        <i class="material-icons">
-          edit
-        </i>
-      </button>
-    </div>
-    <div *ngIf="isLoginEditable">
+     
+   
+    <div>
       <mat-form-field>
         <input matInput placeholder="Введите логин" [(ngModel)]="newLogin">
       </mat-form-field>
