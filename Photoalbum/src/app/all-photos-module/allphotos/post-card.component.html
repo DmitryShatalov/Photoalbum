@@ -16,6 +16,6 @@
       <span class="post-edited-date">{{post.editDate| date: "MMM d yyyy, HH:mm" }}</span>
     </div>
   </mat-card-content>
-  <app-ratings (ratingEmitter)="addRating($event)"></app-ratings>
+  <!-- <app-ratings (ratingEmitter)="addRating($event)"></app-ratings> -->
   <app-comments-wrapper [post]="post"></app-comments-wrapper>
 </mat-card>

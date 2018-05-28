@@ -4,6 +4,7 @@ mat-toolbar {
     top: 0; 
     width: 100%; 
     z-index: 10;
+    height: 42px;
 
 }
 nav a{
@@ -23,14 +24,13 @@ a {
     display: inline-block;
     color: white;
 }
-.greetings:active{
-    border-bottom: 2px solid white;
-}
+
 .greetings i{
    
     margin-top: 10px;
 }
 
 .active{
-    border-bottom: 2px solid white;
+    border-bottom: 5px solid white;
+    border-radius: 0;
   }

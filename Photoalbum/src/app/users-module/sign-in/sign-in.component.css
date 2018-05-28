@@ -1,42 +1,41 @@
-body{
-    height: 99vh;
-    background-color: darkgray;
-    border-top: 1vh solid darkgray;
-}
-.sign-in-form{
-    padding-top: 30px;
-    height: 400px;
-    margin: 0 auto;
-     margin-top: 10%; 
-    background-color: white;
-    
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+body {}
 
+.sign-in-form {
+  padding-top: 30px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 10%;
 }
-.login, .password, .submit{
-    display: block;
-    width: 200px;
-     margin: 0 auto; 
-     margin-top: 20px; 
+
+.login,
+.password,
+.submit {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 20px;
 }
-.form-error-text{
-    display: block; 
-    width: 200px;
-    margin:0 auto;
-    color: red;
+
+.form-error-text {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  color: red;
 }
-.submit{
-    margin-top: 50px; 
+
+.submit {
+  margin-top: 50px;
 }
-.alert{
-    text-align: center;
-    color: red;
-    margin: 0 auto;
+
+.alert {
+  text-align: center;
+  color: red;
+  margin: 0 auto;
 }
-.go-to-main-page{
-    display: block;
-    margin: 0 auto;
-    margin-top: 15px;
-    width: 200px;
-  }
-  
+
+.go-to-main-page {
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  width: 200px;
+}

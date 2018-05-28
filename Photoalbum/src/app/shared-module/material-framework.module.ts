@@ -13,6 +13,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatDividerModule } from "@angular/material/divider";
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 const modules = [
   CommonModule,
     MatToolbarModule,
@@ -27,7 +28,8 @@ const modules = [
     MatDividerModule,
     MatSidenavModule,
     MatListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule
 ]
 
 @NgModule({

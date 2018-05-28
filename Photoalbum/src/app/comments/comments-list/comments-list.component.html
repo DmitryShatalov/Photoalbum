@@ -13,6 +13,9 @@
       </mat-radio-button>
     </mat-radio-group>
 
+    <div class="spinner-wrapper" *ngIf="isLoading">
+        <mat-spinner diameter="30"></mat-spinner>
+    </div>
     <li *ngFor="let comm of photoComments; let i = index">
       <div class="show-comments" *ngIf="!isNoComment">
         <div class="comment-user">
@@ -28,15 +31,17 @@
       <div *ngIf="isEditable[i]">
         <app-edit-comment [comm]="comm" (commentText)="editComment($event)"></app-edit-comment>
       </div>
+      <div class="comments-action-button" *ngIf="isCurrentUserComment[i]">
       <button class="edit-comment--btn" mat-icon-button color="primary" (click)="isCommentEditable(i)">
         <i class="material-icons">edit</i>
       </button>
       <button class="delete-comment--btn" mat-icon-button color="primary" (click)="deleteComment(comm['id'])">
         <i class="material-icons">delete</i>
       </button>
+    </div>
       <mat-divider></mat-divider>
     </li>
-    <div *ngIf="isNoComment">Комментариев Нет</div>
+    <div *ngIf="isNoComment">Комментариев нет</div>
   </ul>
 
 </div>

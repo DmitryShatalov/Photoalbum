@@ -1,3 +1,5 @@
+import { CommentsService } from './comments.service';
+import { CommentsDataService } from './comments-data.service';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,6 +13,7 @@ import { CommentInputComponent } from './comment-input/comment-input.component';
   imports: [
     CommonModule, SharedModule
   ],
+  providers: [CommentsDataService, CommentsService],
   declarations: [NewCommentComponent, CommentsListComponent, CommentsWrapperComponent, EditCommentComponent, CommentInputComponent],
   exports: [CommentsWrapperComponent]
 })

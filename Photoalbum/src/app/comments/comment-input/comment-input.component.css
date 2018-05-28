@@ -1,7 +1,11 @@
 mat-form-field{
 width: 85%;
+
+padding-top: 15px;
+
 }
 textarea {
+    
     white-space: pre-wrap;
     width: 100%;
 }

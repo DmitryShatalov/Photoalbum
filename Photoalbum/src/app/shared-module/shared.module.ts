@@ -29,7 +29,7 @@ import { DeleteCardPopupComponent } from './popups/delete-card-popup/delete-card
     AppRoutingModule,
     FlexLayoutModule
   ],
-  providers: [AuthGuard, CommentsService, RatingsService],
+  providers: [AuthGuard,/*  CommentsService, */ RatingsService],
   entryComponents: [ChangeUserComponent],
   declarations: [
     EditCardPopupComponent,

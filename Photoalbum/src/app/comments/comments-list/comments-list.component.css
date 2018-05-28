@@ -31,3 +31,9 @@ ul {
   margin-top: -18px;
   white-space: pre-line;
 }
+.comment-date{
+  padding-bottom: 8px;
+}
+.comments-action-button{
+  margin-top: -8px;
+}

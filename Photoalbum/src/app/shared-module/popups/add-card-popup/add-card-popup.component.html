@@ -11,8 +11,8 @@
           <i class="material-icons">file_upload</i>
           Загрузить файл
         </a>
-        {{fileName}}
       </label>
+      <img [src]="imgUrl" class="image-preview" *ngIf="imgUrl!=null">
     </div>
     <label class="title-label">Заголовок</label>
     <br>

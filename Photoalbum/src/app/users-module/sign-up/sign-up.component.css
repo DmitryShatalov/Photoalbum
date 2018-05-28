@@ -1,17 +1,16 @@
 body {
-  height: 99vh;
-  background-color: darkgray;
-  border-top: 1vh solid darkgray;
+  /* height: 99vh; */
+
 }
 
 .sign-up-form {
   padding-top: 30px;
-  width: 400px;
-  height: 500px;
+  width: 95%;
+  height: auto;
   margin: 0 auto;
   margin-top: 10%;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  /* background-color: white; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
 }
 
 .login,
@@ -42,5 +41,6 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 15px;
+  padding-bottom: 20px;
   width: 200px;
 }

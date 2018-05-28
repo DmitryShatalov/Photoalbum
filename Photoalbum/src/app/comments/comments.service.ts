@@ -1,15 +1,20 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from "rxjs/Observable";
 import { Injectable } from "@angular/core";
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient } from "@angular/common/http";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
 
 const httpOptions = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" })
-  };
+  headers: new HttpHeaders({ "Content-Type": "application/json"})
+};
 
 @Injectable()
 export class CommentsService {
+  photoComments = [];
   constructor(private http: HttpClient) {}
   private postsUrl = "http://localhost:3000/";
+  private messageSource = new BehaviorSubject("default message");
+  currentMessage = this.messageSource.asObservable();
+
   addComment(comment) {
     return this.http.post(this.postsUrl + "comments", comment);
   }
@@ -27,8 +32,9 @@ export class CommentsService {
     let url = `${this.postsUrl + "comments/deleteCommentById"}/${id}`;
     return this.http.delete(url, httpOptions);
   }
-  getCommentById(id: number){
+  getCommentById(id: number) {
     let url = `${this.postsUrl + "comments/getCommentById"}/${id}`;
     return this.http.get(url, httpOptions);
   }
+  
 }

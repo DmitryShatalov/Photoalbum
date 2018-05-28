@@ -9,29 +9,30 @@
 
 <body>
   <form class="sign-in-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
-        <div class="alert" *ngIf="error">{{error}}</div>
-      <mat-form-field class="login">
-        <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
-      </mat-form-field>
-      <span class="form-error-text" *ngIf="loginForm.get('login').invalid && loginForm.get('login').touched">
-        <span *ngIf="loginForm.get('login')['errors'] ['required']">Логин не может быть пустым.</span>
-      </span>
+    <div class="alert" *ngIf="error">{{error}}</div>
+    <mat-form-field class="login">
+      <input matInput placeholder="Введите Логин" type="text" required formControlName="login">
+    </mat-form-field>
+    <span class="form-error-text" *ngIf="loginForm.get('login').invalid && loginForm.get('login').touched">
+      <span *ngIf="loginForm.get('login')['errors'] ['required']">Логин не может быть пустым.</span>
+    </span>
 
-      <mat-form-field class="password">
-        <input matInput placeholder="Введите пароль" type="password" required formControlName="password">
-      </mat-form-field>
-      <span class="form-error-text" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
-          <span *ngIf="loginForm.get('password')['errors'] ['required']">Пароль не может быть пустым.</span>
-          <span *ngIf="loginForm.get('password')['errors'] ['minlength']">
-            Пароль должен быть не меньше {{loginForm.get('password')['errors'] ['minlength']['requiredLength']}} символов, 
-            сейчас {{loginForm.get('password')['errors'] ['minlength']['actualLength']}}.
-          </span>
-        </span>
-      <button mat-raised-button class="submit" color="primary" [disabled]="loginForm.invalid">Войти</button>
-      <button mat-raised-button class="go-to-main-page" color="primary" (click)="goToMainPage()">На Главную</button>
+    <mat-form-field class="password">
+      <input matInput placeholder="Введите пароль" type="password" required formControlName="password">
+    </mat-form-field>
+    <span class="form-error-text" *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+      <span *ngIf="loginForm.get('password')['errors'] ['required']">Пароль не может быть пустым.</span>
+      <span *ngIf="loginForm.get('password')['errors'] ['minlength']">
+        Пароль должен быть не меньше {{loginForm.get('password')['errors'] ['minlength']['requiredLength']}} символов, сейчас {{loginForm.get('password')['errors']
+        ['minlength']['actualLength']}}.
+      </span>
+    </span>
+    <mat-card-actions>
+      <button mat-button class="submit" color="primary" [disabled]="loginForm.invalid">Войти</button>
+      <button mat-button class="go-to-main-page" color="primary" (click)="goToMainPage()">На главную</button>
+    </mat-card-actions>
   </form>
 
 </body>
 
 </html>
-

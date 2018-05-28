@@ -34,24 +34,29 @@ export class MyphotosComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.postDataService.getData().subscribe(posts => (this.posts = posts));
+    this.postDataService.getData().subscribe(posts => {
+      this.posts = posts;
+      this.orderByDate();
+    });
     this.isAuth();
   }
 
-  /* orderByAlpabet() {
+  orderByAlpabet() {
     this.posts.sort((a, b) => {
-      if (a.title < b.title) return -1;
-      else if (a.title > b.title) return 1;
-      else return 0;
+      return new Intl.Collator().compare(
+        a.title.toLocaleLowerCase(),
+        b.title.toLocaleLowerCase()
+      );
     });
   }
   orderByDate() {
     this.posts.sort((a, b) => {
-      if (a.uploadDate < b.uploadDate) return -1;
-      else if (a.uploadDate > b.uploadDate) return 1;
+      console.log(a);
+      if (Date.parse(a.uploadDate) < Date.parse(b.uploadDate)) return 1;
+      else if (Date.parse(a.uploadDate) > Date.parse(b.uploadDate)) return -1;
       else return 0;
     });
-  } */
+  }
 
   deleteMyPost(event, post: PostsData) {
     if (event) {
@@ -97,7 +102,10 @@ export class MyphotosComponent implements OnInit {
           console.log(post);
           this.postDataService
             .getData()
-            .subscribe(posts => (this.posts = posts));
+            .subscribe(posts => {
+              this.posts = posts;
+              this.orderByDate();
+            });
         });
       }
     });

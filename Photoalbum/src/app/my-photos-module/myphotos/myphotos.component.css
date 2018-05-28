@@ -1,6 +1,6 @@
-.flex-card-container :first-child {
+/* .flex-card-container :first-child {
   margin-top: 16%;
-}
+} */
 
 .addButton-container {
   /* padding: 10px; */
@@ -17,3 +17,8 @@
   margin-top: 20px;
 }
 
+mat-radio-group {
+  display: block;
+  margin-top: 55px;
+  text-align: center;
+}
