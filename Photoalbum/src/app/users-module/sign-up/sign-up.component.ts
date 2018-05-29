@@ -33,9 +33,9 @@ export class SignUpComponent implements OnInit {
   registerUser() {
     const { name, login, password } = this.registerForm.value;
     const user = new User(login, name, password);
-    console.log(this.registerForm);
+    //console.log(this.registerForm);
     this.usersService.registerUser(user).subscribe((user: User) => {
-      console.log(user);
+    //  console.log(user);
       this.router.navigate(["login"]);
     }, error => {
       this.error = error.error;

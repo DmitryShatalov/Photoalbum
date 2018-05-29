@@ -1,11 +1,9 @@
 <form class="commentsForm" [formGroup]="commentInputForm" (ngSubmit)="addComment()">
-  <div class="show-input-wrapper">
     <mat-form-field>
-      <textarea matTextareaAutosize class="comment_field" matInput placeholder="Введите комментарий" formControlName="commentControl"
+      <textarea matTextareaAutosize  maxlength="152" class="comment_field" matInput placeholder="Введите комментарий" formControlName="commentControl"
         [(ngModel)]="commentText" (ngModelChange)="onCheckLength()"></textarea>
     </mat-form-field>
     <button class="submit-btn" mat-icon-button color="primary" type="submit" [disabled]="isFormInvalid">
       <i class="material-icons">send</i>
     </button>
-  </div>
 </form>

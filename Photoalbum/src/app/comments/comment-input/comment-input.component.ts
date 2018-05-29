@@ -19,7 +19,7 @@ export class CommentInputComponent implements OnInit {
     this.commentInputForm = new FormGroup({
       commentControl: new FormControl(null, [
         // Validators.required,
-        Validators.maxLength(200),
+        Validators.maxLength(10),
         Validators.minLength(1)
       ])
     });

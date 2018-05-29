@@ -3,12 +3,9 @@
     height: 400px; */
 }
 textarea{
-    min-height: 200px; 
+    min-height: 150px; 
 }
 mat-form-field{
    /*  width: 280px; */
 }
 
-.popup-buttons{
-    float: right;
-}

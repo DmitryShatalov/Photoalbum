@@ -37,7 +37,7 @@ export class MypostcardComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+     // console.log(result);
       this.delete.emit(result);
     });
  
@@ -63,7 +63,7 @@ export class MypostcardComponent implements OnInit {
         }
         this.editedPost.id = this.post.id;
         this.edit.emit(this.editedPost);
-        console.log(this.post)
+       // console.log(this.post)
       }
     });
   }

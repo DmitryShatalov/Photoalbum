@@ -10,6 +10,7 @@ import { CommentsService } from '../comments.service';
 export class CommentsWrapperComponent implements OnInit {
 
   @Input() post;
+  @Input() isAllPostsPage;
   currentUserId;
   orderByDefault: boolean = true;
   isNoComment: boolean = false;
@@ -28,7 +29,7 @@ export class CommentsWrapperComponent implements OnInit {
 
   addComment(comment){
     this.commentsDataService.addPhotoComment(comment);
-    console.log(this.commentsDataService.getPhotoComments(this.post))
+    //console.log(this.commentsDataService.getPhotoComments(this.post))
     //this.commentsService.addComment(comment).subscribe(res => {
      // this.commentsService.getCommentsByPhotoId(this.post.photoId).subscribe(res => console.log(res))
     //})

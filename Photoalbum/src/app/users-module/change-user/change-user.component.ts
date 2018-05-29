@@ -6,6 +6,7 @@ import {
 } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material";
 import { UsersDataService } from "../../shared-module/services/users-data.service";
+import { AuthService } from "../../shared-module/services/auth.service";
 
 @Component({
   selector: "app-change-user",
@@ -15,7 +16,8 @@ import { UsersDataService } from "../../shared-module/services/users-data.servic
 export class ChangeUserComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ChangeUserComponent>,
-    /* @Inject(MAT_DIALOG_DATA) public data: any */ private usersDataService: UsersDataService
+    private usersDataService: UsersDataService,
+    private authService: AuthService
   ) {}
   //currentName: string = this.data.currentUser.name;
   //currentLogin: string = this.data.currentUser.login;
@@ -25,14 +27,16 @@ export class ChangeUserComponent implements OnInit {
   isLoginEditable: boolean = false;
 
   ngOnInit() {
+    if (this.authService.isLoggedIn) {
       this.usersDataService.getCurrentUser().subscribe(res => {
         this.newName = res["name"];
         this.newLogin = res["login"];
-      })
+      });
+    }
   }
 
   changeUser() {
-    console.log(this.newName, this.newLogin);
+   // console.log(this.newName, this.newLogin);
     this.dialogRef.close({ newName: this.newName, newLogin: this.newLogin });
   }
 
@@ -42,10 +46,10 @@ export class ChangeUserComponent implements OnInit {
 
   editName() {
     this.isNameEditable = !this.isNameEditable;
-    console.log(this.isNameEditable);
+   // console.log(this.isNameEditable);
   }
   editLogin() {
     this.isLoginEditable = !this.isLoginEditable;
-    console.log(this.isLoginEditable);
+   // console.log(this.isLoginEditable);
   }
 }

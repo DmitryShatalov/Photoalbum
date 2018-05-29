@@ -1,13 +1,13 @@
-import { UserService } from './../../users-module/user.service';
-import 'rxjs/add/operator/map'
-import { ChangeUserComponent } from './../../users-module/change-user/change-user.component';
-import { UsersDataService  } from './../services/users-data.service';
-import { AuthService } from './../../shared-module/services/auth.service';
-import { User } from './../models/user.model';
-import { SignInComponent } from './../../users-module/sign-in/sign-in.component';
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
-import { MatDialogRef, MatDialog } from '@angular/material';
+import { UserService } from "./../../users-module/user.service";
+import "rxjs/add/operator/map";
+import { ChangeUserComponent } from "./../../users-module/change-user/change-user.component";
+import { UsersDataService } from "./../services/users-data.service";
+import { AuthService } from "./../../shared-module/services/auth.service";
+import { User } from "./../models/user.model";
+import { SignInComponent } from "./../../users-module/sign-in/sign-in.component";
+import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
+import { MatDialogRef, MatDialog } from "@angular/material";
 
 @Component({
   selector: "app-navigation",
@@ -28,7 +28,7 @@ export class NavigationComponent implements OnInit {
     private userService: UserService
   ) {}
   ngOnInit() {
-   /*  this.usersDataService.getCurrentUser().subscribe(data => {
+    /*  this.usersDataService.getCurrentUser().subscribe(data => {
       console.log(data);
       this.userName = data['name'];
      this.currentUser = data;
@@ -41,37 +41,32 @@ export class NavigationComponent implements OnInit {
   }
   changeUser() {
     this.dialogRef = this.dialog.open(ChangeUserComponent, {
-     /*  data:{
+      minHeight: "400px"
+      /*  data:{
         currentUser: this.currentUser
       } */
     });
     this.dialogRef.afterClosed().subscribe(result => {
       this.usersDataService
         .getCurrentUser()
-       /*  .map(mappedData => {
+        /*  .map(mappedData => {
           return mappedData["user"];
         }) */
         .subscribe(user => {
           console.log(user);
           if (result) {
             //console.log(result.newLogin);
-            user['login'] = result.newLogin;
-            user['name'] = result.newName;
+            user["login"] = result.newLogin;
+            user["name"] = result.newName;
             this.usersDataService.changeUser(user).subscribe(data => {
               if (data) {
                 this.userName = result.newName;
               } else {
-                this.userName = user['name'];
+                this.userName = user["name"];
               }
             });
           }
         });
     });
   }
-
-  
-
-  
- 
-  
 }

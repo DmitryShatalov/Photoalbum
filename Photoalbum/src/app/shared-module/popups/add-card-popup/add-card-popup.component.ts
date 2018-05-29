@@ -39,7 +39,6 @@ export class AddCardPopupComponent implements OnInit {
 
       reader.onload = (event: any) => {
         this.imgUrl = event.target.result;
-        console.log(this.imgUrl)
       };
 
       reader.readAsDataURL(event.target.files[0]);

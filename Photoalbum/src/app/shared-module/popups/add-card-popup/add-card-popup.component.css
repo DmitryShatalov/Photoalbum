@@ -1,6 +1,4 @@
-.add-popup-form {
-  min-width: 250px;
-}
+
 
 textarea {
   min-height: 100px;
@@ -9,10 +7,6 @@ textarea {
 
 mat-form-field {
     width: 100%;
-}
-
-.popup-buttons {
-  float: right;
 }
 
 .image-input-label {
@@ -26,7 +20,7 @@ mat-form-field {
   border: 2px solid #3F51B5;;
   width: 250px;
   height: 250px;
-  object-fit: contain;
+  object-fit: cover;
 }
 .btn{
     margin-top: 10px;

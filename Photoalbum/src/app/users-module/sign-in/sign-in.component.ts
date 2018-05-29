@@ -37,12 +37,12 @@ export class SignInComponent implements OnInit {
     const formData = this.loginForm.value;
     this.usersService.loginUser(formData).subscribe(res => {
       if (res) {
-        console.log(res);
+       // console.log(res);
         window.localStorage.setItem("token", JSON.stringify(res["token"]));
         this.authService.login();
         this.router.navigate(["myphotos"]);
       } else {
-        console.log("fail");
+        //console.log("fail");
       }
     }, error => {
       this.error = error.error;

@@ -12,7 +12,7 @@ export class UserService {
     this.usersDataService.getCurrentUser().subscribe(res => {
       currentUser = res;
     })
-    console.log(this.currentUser);
+    //console.log(this.currentUser);
     return currentUser;
     
   }

@@ -31,7 +31,7 @@ export class AllphotosComponent implements OnInit {
       photoId: post.id,
       rating: rating
     };
-    console.log(this.rating);
+    //console.log(this.rating);
     this.ratingsService.addRaiting(this.rating).subscribe(res => res);
   }
 }

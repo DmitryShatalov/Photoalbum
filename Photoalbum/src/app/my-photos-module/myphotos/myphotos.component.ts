@@ -51,7 +51,6 @@ export class MyphotosComponent implements OnInit {
   }
   orderByDate() {
     this.posts.sort((a, b) => {
-      console.log(a);
       if (Date.parse(a.uploadDate) < Date.parse(b.uploadDate)) return 1;
       else if (Date.parse(a.uploadDate) > Date.parse(b.uploadDate)) return -1;
       else return 0;
@@ -71,10 +70,10 @@ export class MyphotosComponent implements OnInit {
       photoId: post.id,
       rating: rating
     };
-    console.log(this.rating);
+    //console.log(this.rating);
     this.ratingsService
       .addRaiting(this.rating)
-      .subscribe(res => console.log(res));
+      .subscribe(res => res);
   }
   editMyPost(editedPost) {
     let imageUrl = editedPost.editedImg;
@@ -84,8 +83,11 @@ export class MyphotosComponent implements OnInit {
     this.postDataService
       .editData({ id, imageUrl, title, description } as PostsData)
       .subscribe(res => {
-        console.log(res);
-        this.postDataService.getData().subscribe(posts => (this.posts = posts));
+       // console.log(res);
+        this.postDataService.getData().subscribe(posts => {
+          this.posts = posts;
+          this.orderByDate();
+        });
       });
   }
   openAddCardPopup() {
@@ -99,13 +101,11 @@ export class MyphotosComponent implements OnInit {
         fd.append("title", result.newTitle);
         fd.append("description", result.newDesc);
         this.postDataService.addData(fd).subscribe(post => {
-          console.log(post);
-          this.postDataService
-            .getData()
-            .subscribe(posts => {
-              this.posts = posts;
-              this.orderByDate();
-            });
+          //console.log(post);
+          this.postDataService.getData().subscribe(posts => {
+            this.posts = posts;
+            this.orderByDate();
+          });
         });
       }
     });
